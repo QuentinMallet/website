@@ -59,48 +59,39 @@
 
       let
         pkgs = pkgsForSystem system;
+        lib = pkgs.lib;
       in
       rec {
         packages = rec {
           blog = pkgs.stdenv.mkDerivation rec {
             pname = "static-website";
             version = "0.1.0";
-            src = ./.;
+            src = lib.fileset.toSource {
+              root = ./.;
+              fileset = lib.fileset.unions [
+                ./config.toml
+                ./content
+                ./templates
+                ./sass
+                ./static
+              ];
+            };
             nativeBuildInputs = with pkgs; [
-              hugo
-              pandoc
+              zola
             ];
+            buildPhase = ''
+              zola build -o $out
+            '';
+            dontInstall = true;
           };
           cv = mk_cv "cv" pkgs;
           cv_en = mk_cv "cv_en" pkgs;
-          lettre = pkgs.stdenv.mkDerivation {
-            name = "lettre";
-            src = ./lettre;
-            dontUnpack = true;
-            dontInstall = true;
 
-            buildInputs = [
-              (pkgs.texlive.withPackages (
-                ps: with ps; [
-                  babel-french
-                  lettre
-                  scheme-full
-                  toolbox
-                ]
-              ))
-            ];
-            TEXMFHOME = "$TMPDIR";
-            TEXMFVAR = "$TMPDIR";
-            TEXMFCONFIG = "$TMPDIR";
-
-            buildPhase = latex_build "lettre_de_motivation";
-          };
-
-          default = self.packages.${system}.cv;
+          default = blog;
 
         };
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [ hugo ];
+          packages = with pkgs; [ zola ];
         };
       }
     );

@@ -1,0 +1,165 @@
+// Design tokens from generation_carte_visite/business_card_vec.py
+// Colors
+$bg-primary:      #1a1a1a;
+$accent-gold:     #D4A017;
+$text-secondary:  #A0A0A0;
+$text-primary:    #F5F5F5;
+$separator:       #444444;
+
+// Typography - cross-platform font stacks
+// Helvetica is proprietary and unavailable on Linux.
+// Degrades: Helvetica Neue (macOS) -> Helvetica (macOS/some) -> Arial (Windows/Linux) -> system sans-serif.
+$font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-body:    'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// For the motto "Dictum Meum Solidus Meus" (TeX Gyre Chorus / Zapf Chancery on the card).
+// TeX Gyre Chorus is not a web font; use a cursive system font stack as fallback.
+$font-motto: 'TeX Gyre Chorus', 'Apple Chancery', 'URW Chancery L', cursive;
+
+// Reset & base
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-color: $bg-primary;
+  color: $text-primary;
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+// Card layout mirrors the business card structure
+.card-layout {
+  width: 100%;
+  max-width: 640px;
+  padding: 0 1rem;
+}
+
+// Gold horizontal rule accents (top/bottom and section separators)
+.gold-rule {
+  border: none;
+  border-top: 1.5px solid $accent-gold;
+  margin: 1.5rem 0;
+
+  &.top    { margin-top: 0; }
+  &.bottom { margin-bottom: 0; }
+}
+
+// Hero: company name block
+.hero {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.company-name {
+  font-family: $font-heading;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  color: $text-primary;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.company-subtitle {
+  font-family: $font-heading;
+  font-size: clamp(1rem, 3.5vw, 1.5rem);
+  font-weight: 700;
+  color: $accent-gold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.taglines {
+  font-family: $font-body;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  color: $text-secondary;
+  letter-spacing: 0.04em;
+}
+
+// Services section
+.services {
+  padding: 1rem 0;
+}
+
+.body-text {
+  font-family: $font-body;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: $text-secondary;
+  text-align: center;
+  line-height: 1.7;
+}
+
+// Contact section
+.contact {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.contact-name {
+  font-family: $font-heading;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 0.4rem;
+}
+
+.contact-detail {
+  font-family: $font-body;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: $text-secondary;
+  margin-bottom: 0.2rem;
+
+  a {
+    color: $text-secondary;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent-gold;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Motto footer
+.motto {
+  padding: 1.25rem 0 0.25rem;
+  text-align: center;
+
+  em {
+    font-family: $font-motto;
+    font-style: italic;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: $accent-gold;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Responsive: ensure readable on 320px min-width
+@media (max-width: 400px) {
+  .card-layout {
+    padding: 0 0.5rem;
+  }
+
+  .company-name {
+    letter-spacing: 0.06em;
+  }
+}
