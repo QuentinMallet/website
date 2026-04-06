@@ -67,6 +67,15 @@ body {
   padding: 1.5rem 0;
 }
 
+.logo {
+  width: clamp(80px, 15vw, 120px);
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .company-name {
   font-family: $font-heading;
   font-size: clamp(2.5rem, 8vw, 4rem);
@@ -161,5 +170,39 @@ body {
 
   .company-name {
     letter-spacing: 0.06em;
+  }
+}
+
+// Content sections
+h3 {
+  font-family: $font-heading;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  font-weight: 700;
+  color: $accent-gold;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.about, .experience, .certifications {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.experience-list, .cert-list {
+  list-style: none;
+  text-align: left;
+  max-width: 90%;
+  margin: 0 auto;
+  
+  li {
+    font-family: $font-body;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    color: $text-secondary;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    
+    strong {
+      color: $text-primary;
+    }
   }
 }

@@ -127,3 +127,26 @@ br transition <bead-id> --status done
 ## Language
 
 Site content is in French.
+
+## Ralplan & Beads Tracker Integration
+
+**Important workflow:** All ralplan (consensus planning) session outputs must be tracked in the beads issue tracker once validated.
+
+When a ralplan workflow completes:
+1. Review the approved plan in `.omc/plans/`
+2. Create beads issues for each major deliverable using `br create`
+3. Link issues to an epic if the plan spans multiple tasks
+4. Close issues with `br update <issue-id> --status closed` as work completes
+
+This ensures:
+- Persistent tracking of planned work
+- Audit trail for consensus decisions
+- Clear progress visibility across ralplan sessions
+
+Example:
+```bash
+# After ralplan approval for "Add authentication"
+br create "Implement JWT authentication" --type task --priority P1
+br create "Add login UI" --type task --priority P1
+br create "Write auth tests" --type task --priority P2
+```
