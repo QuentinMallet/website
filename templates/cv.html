@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="card-layout">
+  <div class="gold-rule top"></div>
+
+  <section class="hero">
+    <h1 class="company-name">Quentin Mallet</h1>
+    <h2 class="company-subtitle">Expert Cybersécurité</h2>
+    <p class="taglines">
+      <a href="{{ get_url(path='@/_index.md') }}" class="back-link">← Retour à l'accueil</a>
+    </p>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <section class="about">
+    <h3>Expert Cybersécurité Indépendant</h3>
+    <p class="body-text">
+      Spécialiste en sécurité des systèmes d'information avec plus de 8 ans d'expérience.
+      Audit ISO27001, gouvernance de la sécurité, architecture sécurisée et gestion des risques.
+    </p>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <section class="experience">
+    <h3>Expérience</h3>
+    <ul class="experience-list">
+      <li><strong>2025-Présent:</strong> Expert Cybersécurité Indépendant — Audit, R&D, DevSecOps</li>
+      <li><strong>2022-2025:</strong> RSSI Silae Group — Certification ISO27001, 1M clients, 7.5M bulletins/mois</li>
+      <li><strong>2020-2022:</strong> Responsable Sécurité SI Majorel — Threat hunting, conformité, gestion de crise</li>
+      <li><strong>2019-2020:</strong> Analyste Sécurité MAIF (Alten) — SIEM, RGPD, architecture</li>
+      <li><strong>2018-2019:</strong> Expert Sécurité Vientech — SmartGrids, microservices, audit réseau</li>
+    </ul>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <section class="certifications">
+    <h3>Certifications & Formation</h3>
+    <ul class="cert-list">
+      <li><strong>2026:</strong> Auditeur ISO27001 AFNOR Certification</li>
+      <li><strong>2022:</strong> PMP (Project Management Professional)</li>
+      <li><strong>2021:</strong> ISO27001 Lead Implementer</li>
+      <li><strong>2016-2018:</strong> Master CRYPTIS — Sécurité informatique, Université de Limoges</li>
+    </ul>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <section class="skills">
+    <h3>Compétences Clés</h3>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h4>Cybersécurité</h4>
+        <ul>
+          <li>Pentesting (web, réseau, Active Directory)</li>
+          <li>ISO 27001 — implémentation & conformité</li>
+          <li>Gestion d'incidents & crises</li>
+          <li>Cryptographie appliquée</li>
+          <li>Conception d'outils offensifs</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4>Systèmes & Infrastructure</h4>
+        <ul>
+          <li>NixOS / Nix — flakes, binary caches</li>
+          <li>Administration Linux avancée</li>
+          <li>Observabilité (OpenTelemetry, Prometheus)</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4>Développement</h4>
+        <ul>
+          <li>Elixir / OTP — services, supervision trees</li>
+          <li>Rust — systèmes, CLI, NIFs</li>
+          <li>Python — scripting, automation</li>
+          <li>TLA+ — spécifications formelles</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4>Architecture & Design</h4>
+        <ul>
+          <li>Systèmes distribués</li>
+          <li>Design algorithmique</li>
+          <li>Méthodes formelles</li>
+          <li>Migration pattern recognition</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4>Management & Organisation</h4>
+        <ul>
+          <li>PMP certifié — gestion de projet</li>
+          <li>Management d'équipes</li>
+          <li>Coaching & certifications</li>
+          <li>Structuration organisationnelle</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <section class="accomplishments">
+    <h3>Réalisations Notables</h3>
+    <ul class="accomplishments-list">
+      <li><strong>Certification ISO27001 Silae Group</strong> — Certification réussie pour 1M clients, 7.5M bulletins/mois</li>
+      <li><strong>Audits DevSecOps</strong> — Revues de sécurité applicative et infrastructure</li>
+      <li><strong>Audits ISO27001</strong> — Audits de conformité et implémentation</li>
+      <li><strong>Firmware Rust pour bornes de recharge VE</strong> — Développement de firmware embarqué sécurisé</li>
+      <li><strong>Applications de sécurité Rust</strong> — Solutions multi-plateformes (Windows, Linux)</li>
+      <li><strong>Automation Python</strong> — Protection de fichiers et automatisation</li>
+      <li><strong>Contributions Nixpkgs</strong> — Contributions open source à l'écosystème Nix</li>
+      <li><strong>Analyse cryptomonnaies</strong> — Analyse de domaine et développement d'applications (Rust)</li>
+      <li><strong>Gestion grands comptes</strong> — Négociations contrats sécurité (Big4, FAANG) pour tiers</li>
+      <li><strong>Audit applicatif</strong> — Revues de sécurité et architecture</li>
+      <li><strong>Spécifications TLA+</strong> — Modélisation formelle de systèmes distribués</li>
+      <li><strong>TPRM</strong> — Third-Party Risk Management</li>
+    </ul>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <section class="contact">
+    <p class="contact-name">Contact</p>
+    <p class="contact-detail">
+      <a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a>
+    </p>
+    <p class="contact-detail">
+      <a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a>
+    </p>
+    <p class="contact-detail contact-pgp">
+      <a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a>
+    </p>
+  </section>
+
+  <div class="gold-rule bottom"></div>
+
+  <footer class="motto">
+    <em>Dictum Meum Solidus Meus</em>
+  </footer>
+</main>
+{% endblock content %}
