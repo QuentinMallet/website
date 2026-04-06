@@ -2,7 +2,7 @@
 // Colors
 $bg-primary:      #1a1a1a;
 $accent-gold:     #D4A017;
-$text-secondary:  #A0A0A0;
+$text-secondary:  #BFBFBF; // Improved contrast for WCAG AA
 $text-primary:    #F5F5F5;
 $separator:       #444444;
 
@@ -64,16 +64,22 @@ body {
 // Hero: company name block
 .hero {
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 3rem 0 2rem; // More breathing room
 }
 
 .logo {
-  width: clamp(80px, 15vw, 120px);
+  width: clamp(120px, 20vw, 180px); // Larger, more prominent
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  filter: drop-shadow(0 4px 12px rgba(212, 160, 23, 0.3)); // Gold glow
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .company-name {
@@ -81,10 +87,11 @@ body {
   font-size: clamp(2.5rem, 8vw, 4rem);
   font-weight: 700;
   color: $text-primary;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em; // Slightly wider
   text-transform: uppercase;
   line-height: 1.1;
   margin-bottom: 0.4rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); // Depth
 }
 
 .company-subtitle {
@@ -114,7 +121,10 @@ body {
   font-size: clamp(0.875rem, 2vw, 1rem);
   color: $text-secondary;
   text-align: center;
-  line-height: 1.7;
+  line-height: 1.8; // More readable
+  max-width: 65ch; // Optimal reading width
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Contact section
@@ -140,25 +150,68 @@ body {
   a {
     color: $text-secondary;
     text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $accent-gold;
+      transition: width 0.3s ease;
+    }
 
     &:hover {
       color: $accent-gold;
-      text-decoration: underline;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    // Add icon for SimpleX
+    &[href*="simplex"]::before {
+      content: '🔒 ';
+      opacity: 0.8;
     }
   }
 }
 
 // Motto footer
 .motto {
-  padding: 1.25rem 0 0.25rem;
+  padding: 2rem 0 1rem;
   text-align: center;
 
   em {
     font-family: $font-motto;
     font-style: italic;
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    color: $accent-gold;
+    font-size: clamp(1.1rem, 3vw, 1.4rem); // Slightly larger
     letter-spacing: 0.05em;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid rgba(212, 160, 23, 0.3);
+    border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    background: linear-gradient(90deg,
+      $accent-gold 0%,
+      lighten($accent-gold, 15%) 50%,
+      $accent-gold 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+// Accessibility: focus styles for keyboard navigation
+a, button, input {
+  &:focus-visible {
+    outline: 2px solid $accent-gold;
+    outline-offset: 4px;
   }
 }
 
@@ -173,14 +226,62 @@ body {
   }
 }
 
+// Enhanced mobile optimization
+@media (max-width: 640px) {
+  .hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .company-name {
+    font-size: clamp(2rem, 10vw, 3rem); // Smaller on mobile
+    letter-spacing: 0.08em; // Tighter
+  }
+
+  // Stack contact items with better touch targets
+  .contact-detail {
+    margin-bottom: 0.5rem;
+
+    a {
+      display: block;
+      padding: 0.75rem;
+      background: rgba(68, 68, 68, 0.3);
+      border-radius: 4px;
+      text-align: center;
+
+      &:active {
+        background: rgba(212, 160, 23, 0.2);
+      }
+    }
+  }
+}
+
 // Content sections
 h3 {
   font-family: $font-heading;
   font-size: clamp(1.1rem, 3vw, 1.3rem);
   font-weight: 700;
   color: $accent-gold;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
   text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      $accent-gold 50%,
+      transparent 100%
+    );
+  }
 }
 
 .about, .experience, .certifications {
@@ -193,16 +294,53 @@ h3 {
   text-align: left;
   max-width: 90%;
   margin: 0 auto;
-  
+
   li {
     font-family: $font-body;
     font-size: clamp(0.85rem, 2vw, 0.95rem);
     color: $text-secondary;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     line-height: 1.6;
-    
-    strong {
-      color: $text-primary;
+    padding: 0.75rem 0 0.75rem 1rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-left-color: $accent-gold;
+      padding-left: 1.5rem;
+      background: rgba(212, 160, 23, 0.05);
     }
+
+    strong {
+      color: $accent-gold; // Gold dates for emphasis
+      font-weight: 600;
+    }
+  }
+}
+
+// Subtle fade-in animations
+.card-layout > * {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.card-layout > *:nth-child(1) { animation-delay: 0.1s; }
+.card-layout > *:nth-child(2) { animation-delay: 0.2s; }
+.card-layout > *:nth-child(3) { animation-delay: 0.3s; }
+.card-layout > *:nth-child(4) { animation-delay: 0.4s; }
+.card-layout > *:nth-child(5) { animation-delay: 0.5s; }
+.card-layout > *:nth-child(6) { animation-delay: 0.6s; }
+.card-layout > *:nth-child(7) { animation-delay: 0.7s; }
+.card-layout > *:nth-child(8) { animation-delay: 0.8s; }
+.card-layout > *:nth-child(9) { animation-delay: 0.9s; }
+.card-layout > *:nth-child(10) { animation-delay: 1.0s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
