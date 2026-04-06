@@ -265,6 +265,16 @@ a, button, input {
       }
     }
   }
+
+  // Skills grid: single column on mobile
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-category {
+    padding: 1rem;
+  }
 }
 
 // Content sections
@@ -296,12 +306,12 @@ h3 {
   }
 }
 
-.about, .experience, .certifications {
+.about, .experience, .certifications, .skills, .accomplishments {
   padding: 1rem 0;
   text-align: center;
 }
 
-.experience-list, .cert-list {
+.experience-list, .cert-list, .accomplishments-list {
   list-style: none;
   text-align: left;
   max-width: 90%;
@@ -324,8 +334,65 @@ h3 {
     }
 
     strong {
-      color: $accent-gold; // Gold dates for emphasis
+      color: $accent-gold; // Gold dates/titles for emphasis
       font-weight: 600;
+    }
+  }
+}
+
+// Skills grid layout
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.skill-category {
+  background: rgba(68, 68, 68, 0.2);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-top: 2px solid $accent-gold;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(68, 68, 68, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 160, 23, 0.15);
+  }
+
+  h4 {
+    font-family: $font-heading;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    font-weight: 600;
+    color: $accent-gold;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-family: $font-body;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      color: $text-secondary;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+      padding-left: 1rem;
+      position: relative;
+
+      &::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: $accent-gold;
+        opacity: 0.6;
+      }
     }
   }
 }
