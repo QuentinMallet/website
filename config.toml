@@ -1,6 +1,7 @@
-base_url = "https://QuentinMallet.github.io/website/"
-# NOTE: Change to "https://mstratsec.biz/" once DNS A records are configured and propagated
-# When switching to custom domain: restore static/CNAME file with content "mstratsec.biz"
+# Custom domain owned by the user. GitHub Pages serves the site at this URL.
+# During initial setup (before DNS propagates), the site is also accessible at
+# https://QuentinMallet.github.io/website/ as a fallback.
+base_url = "https://mstratsec.biz/"
 title = "MALLET - Strategie & Securite"
 description = "Expert Cybersecurite - Consultant Informatique"
 default_language = "fr"
