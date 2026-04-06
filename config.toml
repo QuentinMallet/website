@@ -1,7 +1,7 @@
 # Custom domain owned by the user. GitHub Pages serves the site at this URL.
-# During initial setup (before DNS propagates), the site is also accessible at
-# https://QuentinMallet.github.io/website/ as a fallback.
-base_url = "https://mstratsec.biz/"
+# TODO: Switch back to https://mstratsec.biz/ once DNS A records are configured
+# to point to GitHub Pages (185.199.108-111.153)
+base_url = "https://QuentinMallet.github.io/website/"
 title = "MALLET - Strategie & Securite"
 description = "Expert Cybersecurite - Consultant Informatique"
 default_language = "fr"
