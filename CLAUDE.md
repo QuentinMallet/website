@@ -110,6 +110,17 @@ GitHub handles TLS certificate provisioning automatically via Let's Encrypt once
 3. Under "Custom domain", enter `mstratsec.biz` and click Save.
 4. Check "Enforce HTTPS" once the certificate is provisioned.
 
+## Deployment
+
+**Git push:** The repository owner (Quentin) handles all pushes to GitHub. SSH authentication is configured with a project-specific key that is not accessible to automated agents.
+
+To deploy changes:
+```bash
+git push origin master
+```
+
+This triggers the GitHub Actions workflow which builds and deploys the site automatically.
+
 ## Git LFS
 
 `*.png`, `picture.jpg`, and `*.pdf` are tracked via Git LFS (see `.gitattributes`). Files at the repo root (`picture.jpg`, `cv.pdf`, `cv_en.pdf`) are LFS pointer stubs — run `git lfs pull` to fetch the actual content.
