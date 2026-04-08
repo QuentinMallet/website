@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
+{% block description %}{{ section.description }}{% endblock description %}
+
+{% block content %}
+<main class="card-layout">
+  <div class="gold-rule top"></div>
+
+  <nav class="breadcrumb">
+    <a href="{{ get_url(path='@/_index.md') }}" class="back-link">← Retour à l'accueil</a>
+  </nav>
+
+  <section class="thoughts-header">
+    <h1 class="section-title">{{ section.title }}</h1>
+    {% if section.description %}
+    <p class="section-description">{{ section.description }}</p>
+    {% endif %}
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <section class="thoughts-list">
+    {% if section.pages %}
+      {% for page in section.pages %}
+      <article class="thought-card">
+        <h2 class="thought-title">
+          <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+        </h2>
+        <div class="thought-meta">
+          <time datetime="{{ page.date }}">{{ page.date | date(format='%d %B %Y') }}</time>
+        </div>
+        {% if page.description %}
+        <p class="thought-excerpt">{{ page.description }}</p>
+        {% elif page.summary %}
+        <p class="thought-excerpt">{{ page.summary | safe }}</p>
+        {% endif %}
+        <a href="{{ page.permalink | safe }}" class="read-more">Lire la suite →</a>
+      </article>
+      {% endfor %}
+    {% else %}
+      <p class="no-content">Aucune pensée pour le moment. Revenez bientôt!</p>
+    {% endif %}
+  </section>
+
+  <div class="gold-rule bottom"></div>
+
+  <footer class="motto">
+    <em>Dictum Meum Solidus Meus</em>
+  </footer>
+</main>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=page.summary) }}{% endblock description %}
+
+{% block content %}
+<main class="card-layout">
+  <div class="gold-rule top"></div>
+
+  <nav class="breadcrumb">
+    <a href="{{ get_url(path='@/thoughts/_index.md') }}" class="back-link">← Retour aux pensées</a>
+  </nav>
+
+  <article class="thought-content">
+    <header class="thought-header">
+      <h1 class="thought-title-single">{{ page.title }}</h1>
+      <div class="thought-meta">
+        <time datetime="{{ page.date }}">{{ page.date | date(format='%d %B %Y') }}</time>
+      </div>
+    </header>
+
+    <div class="gold-rule"></div>
+
+    <div class="prose">
+      {{ page.content | safe }}
+    </div>
+  </article>
+
+  <div class="gold-rule bottom"></div>
+
+  <footer class="motto">
+    <em>Dictum Meum Solidus Meus</em>
+  </footer>
+</main>
+{% endblock content %}
