@@ -451,7 +451,6 @@ h3 {
 
 .service-card {
   background: rgba(68, 68, 68, 0.15);
-  padding: 2rem 1.5rem;
   border-radius: 8px;
   border: 1px solid rgba(212, 160, 23, 0.2);
   transition: all 0.3s ease;
@@ -474,25 +473,118 @@ h3 {
   &:hover {
     background: rgba(68, 68, 68, 0.25);
     border-color: rgba(212, 160, 23, 0.5);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(212, 160, 23, 0.2);
   }
 
-  h4 {
-    font-family: $font-heading;
-    font-size: clamp(1rem, 2.5vw, 1.15rem);
-    font-weight: 700;
-    color: $accent-gold;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  &[open] {
+    background: rgba(68, 68, 68, 0.25);
+    border-color: rgba(212, 160, 23, 0.5);
+
+    summary {
+      margin-bottom: 1rem;
+
+      &::after {
+        content: '−';
+      }
+    }
   }
 
-  p {
-    font-family: $font-body;
-    font-size: clamp(0.85rem, 2vw, 0.95rem);
-    color: $text-secondary;
-    line-height: 1.7;
+  summary {
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    position: relative;
+    transition: all 0.2s ease;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: '+';
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      color: $accent-gold;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      &::after {
+        transform: translateY(-50%) scale(1.2);
+      }
+    }
+
+    h4 {
+      font-family: $font-heading;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      font-weight: 700;
+      color: $accent-gold;
+      margin: 0;
+      padding-right: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .service-content {
+    padding: 0 1.5rem 1.5rem;
+    animation: slideDown 0.3s ease-out;
+
+    p {
+      font-family: $font-body;
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
+      color: $text-secondary;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .service-contact {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(212, 160, 23, 0.3);
+
+    .contact-name {
+      font-family: $font-heading;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-detail {
+      font-family: $font-body;
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      color: $text-secondary;
+      margin-bottom: 0.3rem;
+
+      a {
+        color: $text-secondary;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+          color: $accent-gold;
+          border-bottom-color: $accent-gold;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
