@@ -1,52 +1,79 @@
 {% extends "base.html" %}
 
-{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
-{% block description %}{{ section.description }}{% endblock description %}
+{% block title %}{{ section.title }} — Mallet Stratégie et Sécurité{% endblock title %}
+{% block description %}{{ section.description | default(value="Notes de terrain sur la sécurité, la méthode, le métier.") }}{% endblock description %}
 
 {% block content %}
-<main class="card-layout">
-  <div class="gold-rule top"></div>
 
-  <nav class="breadcrumb">
-    <a href="{{ get_url(path='@/_index.md') }}" class="back-link">← Retour à l'accueil</a>
-  </nav>
-
-  <section class="thoughts-header">
-    <h1 class="section-title">{{ section.title }}</h1>
-    {% if section.description %}
-    <p class="section-description">{{ section.description }}</p>
-    {% endif %}
-  </section>
-
-  <div class="gold-rule"></div>
-
-  <section class="thoughts-list">
-    {% if section.pages %}
-      {% for page in section.pages %}
-      <article class="thought-card">
-        <h2 class="thought-title">
-          <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-        </h2>
-        <div class="thought-meta">
-          <time datetime="{{ page.date }}">{{ page.date | date(format='%d %B %Y') }}</time>
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand-link" href="{{ get_url(path='@/_index.md') }}">
+        <img src="{{ get_url(path='logo.png') }}" alt="" />
+        <div class="brand-link__text">
+          <span class="brand-link__name">MALLET</span>
+          <span class="brand-link__tag">Stratégie &amp; Sécurité</span>
         </div>
-        {% if page.description %}
-        <p class="thought-excerpt">{{ page.description }}</p>
-        {% elif page.summary %}
-        <p class="thought-excerpt">{{ page.summary | safe }}</p>
-        {% endif %}
-        <a href="{{ page.permalink | safe }}" class="read-more">Lire la suite →</a>
-      </article>
-      {% endfor %}
-    {% else %}
-      <p class="no-content">Aucune pensée pour le moment. Revenez bientôt!</p>
-    {% endif %}
+      </a>
+      <nav class="site-nav">
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#expertise" data-fr>Expertise</a><a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#expertise" data-en style="display:none">Expertise</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#prestations" data-fr>Prestations</a><a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#prestations" data-en style="display:none">Services</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" data-fr>Parcours</a><a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" data-en style="display:none">Résumé</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" aria-current="page" data-fr>Pensées</a><a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" aria-current="page" data-en style="display:none">Thoughts</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#contact">Contact</a>
+        <div class="lang-toggle">
+          <button class="lang-toggle__btn" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-toggle__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="doc-header">
+    <div class="wrap">
+      <div class="doc-header__eyebrow" data-fr>Pensées</div>
+      <div class="doc-header__eyebrow" data-en style="display:none">Thoughts</div>
+      <h1 class="doc-header__title" data-fr>Notes de terrain.</h1>
+      <h1 class="doc-header__title" data-en style="display:none">Field notes.</h1>
+      <div class="doc-header__meta">
+        <span data-fr>Essais courts · Pas de calendrier · Publiés quand c'est prêt</span>
+        <span data-en style="display:none">Short essays · No schedule · Published when ready</span>
+      </div>
+    </div>
   </section>
 
-  <div class="gold-rule bottom"></div>
+  <div class="wrap">
+    <section class="section section--compact">
+      <div class="thought-list">
+        {% if section.pages %}
+          {% for page in section.pages %}
+          <a class="thought-row" href="{{ page.permalink | safe }}" data-reveal data-reveal-delay="{{ loop.index0 }}">
+            <span class="thought-row__date">{% if page.date %}{{ page.date | date(format='%Y · %m') }}{% endif %}</span>
+            <span class="thought-row__num">N° {{ loop.index }}</span>
+            <h3 class="thought-row__title">{{ page.title }}</h3>
+            <span class="thought-row__tag">{{ page.extra.tag | default(value="Note") }}</span>
+          </a>
+          {% endfor %}
+        {% else %}
+          <p style="color: var(--fg-3); padding: var(--sp-8) 0; text-align: center; font-size: var(--fs-body-sm); letter-spacing: 0.2em; text-transform: uppercase;">
+            <span data-fr>Aucune pensée pour le moment.</span>
+            <span data-en style="display:none">No thoughts yet.</span>
+          </p>
+        {% endif %}
+      </div>
+    </section>
+  </div>
 
-  <footer class="motto">
-    <em>Dictum Meum Solidus Meus</em>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="site-footer__motto">Dictum Meum Solidus Meus.</p>
+      <p class="site-footer__translation" data-fr>Ma parole, ma monnaie.</p>
+      <p class="site-footer__translation" data-en style="display:none">My word, my currency.</p>
+      <div class="site-footer__meta">
+        <span>Mallet Stratégie et Sécurité</span>
+        <span>Quentin Mallet</span>
+        <a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a>
+      </div>
+    </div>
   </footer>
-</main>
+
 {% endblock content %}
