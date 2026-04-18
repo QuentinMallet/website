@@ -1,0 +1,297 @@
+/* =========================================================
+   MALLET STRATÉGIE ET SÉCURITÉ — Design Tokens
+   Bespoke cybersecurity consultancy by Quentin Mallet.
+   Visual DNA: heraldic, dark, gold-accented, discreet.
+   ========================================================= */
+
+/* Fonts — both available on Google Fonts.
+   Cormorant Garamond → display serif for motto / accents (closest to the
+   refined italic serif on the business card back).
+   Inter → utility sans for body & UI (substitute; the printed card uses a
+   neutral geometric sans — Inter is the closest open-source match).
+   FLAGGED: if you have the exact source fonts (likely Montserrat or similar
+   for the sans), please share so we can update. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* -----------------------------------------------------------
+     COLORS — Brand (heraldic palette)
+     ----------------------------------------------------------- */
+  --brand-gold:        #D7A216;   /* primary gold — rules, accents, links, motto */
+  --brand-gold-bright: #F4BC1D;   /* highlight gold — buttons hover, key marks   */
+  --brand-gold-deep:   #A67C0E;   /* shadow / pressed state                      */
+  --brand-gold-soft:   #E8C968;   /* light gold — subtle highlights, disabled    */
+
+  --brand-onyx:        #1A1A1A;   /* brand background — charcoal near-black     */
+  --brand-onyx-deep:   #0E0E0E;   /* deepest black — void, overlays             */
+  --brand-steel:       #2A2A2A;   /* raised surface — cards, inputs             */
+  --brand-steel-edge:  #3A3A3A;   /* borders on dark                            */
+  --brand-silver:      #C7C9CC;   /* cold silver — shield rim, metallic accents */
+  --brand-silver-dim:  #8A8C90;   /* muted silver — secondary metal             */
+
+  /* -----------------------------------------------------------
+     COLORS — Neutral scale (dark-mode primary)
+     Used for fg/bg layering on the onyx canvas.
+     ----------------------------------------------------------- */
+  --n-0:   #0E0E0E;  /* absolute black */
+  --n-50:  #1A1A1A;  /* page bg        */
+  --n-100: #222222;
+  --n-200: #2A2A2A;
+  --n-300: #3A3A3A;
+  --n-400: #555555;
+  --n-500: #7A7A7A;
+  --n-600: #9A9A9A;
+  --n-700: #B9B9B9;  /* tagline gray (card) */
+  --n-800: #D6D6D6;
+  --n-900: #F6F6F6;  /* ivory (card headline) */
+
+  /* -----------------------------------------------------------
+     COLORS — Semantic
+     Kept minimal; status signals stay sober (no neon).
+     ----------------------------------------------------------- */
+  --fg-1:        var(--n-900);    /* primary text on dark */
+  --fg-2:        var(--n-700);    /* secondary text       */
+  --fg-3:        var(--n-500);    /* tertiary / hint      */
+  --fg-accent:   var(--brand-gold);
+  --fg-on-gold:  var(--brand-onyx);
+
+  --bg-1:        var(--brand-onyx);
+  --bg-2:        var(--brand-steel);
+  --bg-3:        #333333;
+  --bg-inset:    var(--n-0);
+
+  --border-1:    var(--brand-steel-edge);
+  --border-2:    #4a4a4a;
+  --border-gold: var(--brand-gold);
+
+  --success:  #6FA86B;   /* muted sage, not poison-green */
+  --warning:  var(--brand-gold-bright);
+  --danger:   #B54A3E;   /* dusted brick-red, not fire   */
+  --info:     #6A8CAF;   /* steel blue                    */
+
+  /* Light counterpart (rarely used — formal reports, print) */
+  --paper:       #F4F0E6;  /* parchment off-white           */
+  --paper-edge:  #1A1A1A;
+
+  /* -----------------------------------------------------------
+     TYPOGRAPHY
+     Two families — Cormorant (display serif, motto register)
+     + Inter (sans for body/UI).
+     ----------------------------------------------------------- */
+  --font-sans:    'Inter', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+  --font-serif:   'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-mono:    ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* Scale — modest contrast; this is a trust brand, not a shout brand */
+  --fs-display:   56px;  /* marquee / hero                */
+  --fs-h1:        40px;
+  --fs-h2:        32px;
+  --fs-h3:        24px;
+  --fs-h4:        20px;
+  --fs-body-lg:   18px;
+  --fs-body:      16px;
+  --fs-body-sm:   14px;
+  --fs-caption:   12px;
+  --fs-micro:     10.5px;
+
+  --lh-tight:     1.1;
+  --lh-snug:      1.25;
+  --lh-body:      1.55;
+  --lh-loose:     1.7;
+
+  --ls-wide:      0.18em;  /* the "STRATÉGIE & SÉCURITÉ" spacing            */
+  --ls-mid:       0.08em;  /* section eyebrows, caps                        */
+  --ls-tight:     -0.01em; /* large display sans                            */
+
+  --fw-light:     300;
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-heavy:     800;
+
+  /* -----------------------------------------------------------
+     SPACING — 4px base
+     ----------------------------------------------------------- */
+  --sp-0:   0;
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   24px;
+  --sp-6:   32px;
+  --sp-7:   48px;
+  --sp-8:   64px;
+  --sp-9:   96px;
+  --sp-10: 128px;
+
+  /* -----------------------------------------------------------
+     RADIUS — the card itself has a generous rounded rect (~18px at 360px wide)
+     Everything else stays square-ish to feel engineered.
+     ----------------------------------------------------------- */
+  --r-xs:  2px;
+  --r-sm:  4px;
+  --r-md:  8px;
+  --r-lg:  14px;
+  --r-xl:  20px;   /* business-card-style cards */
+  --r-pill: 999px;
+
+  /* -----------------------------------------------------------
+     ELEVATION — dark-mode shadow system.
+     On onyx, shadow is subtle; we lean on gold key-lines for
+     emphasis rather than big drop-shadows.
+     ----------------------------------------------------------- */
+  --shadow-0:   none;
+  --shadow-1:   0 1px 0 rgba(255,255,255,0.03) inset,
+                0 1px 2px rgba(0,0,0,0.5);
+  --shadow-2:   0 1px 0 rgba(255,255,255,0.04) inset,
+                0 4px 10px rgba(0,0,0,0.55);
+  --shadow-3:   0 1px 0 rgba(255,255,255,0.05) inset,
+                0 14px 36px rgba(0,0,0,0.6),
+                0 2px 6px rgba(0,0,0,0.5);
+  --shadow-gold: 0 0 0 1px rgba(215,162,22,0.35),
+                 0 10px 24px rgba(215,162,22,0.12);
+  --ring-focus:  0 0 0 2px rgba(215,162,22,0.55);
+
+  /* -----------------------------------------------------------
+     LINES — heraldic gold rule is a signature element
+     ----------------------------------------------------------- */
+  --rule-hairline: 1px;
+  --rule-standard: 2px;    /* card top/bottom bars    */
+  --rule-bold:     3px;
+
+  /* -----------------------------------------------------------
+     MOTION — sober, short, no bounce
+     ----------------------------------------------------------- */
+  --dur-fast:   120ms;
+  --dur-base:   180ms;
+  --dur-slow:   320ms;
+  --ease-std:   cubic-bezier(0.2, 0, 0, 1);    /* standard */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1); /* emphasized out */
+  --ease-in:    cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* ===========================================================
+   SEMANTIC TYPE CLASSES
+   Use these in UI rather than hard-coding fs/lh/weight.
+   =========================================================== */
+.type-motto {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h2);
+  color: var(--brand-gold);
+  letter-spacing: 0.01em;
+  line-height: var(--lh-snug);
+}
+
+.type-display {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+  color: var(--fg-1);
+}
+
+.type-h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+  color: var(--fg-1);
+}
+.type-h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.type-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.type-h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+/* The hallmark treatment — wide-tracked gold caps, used for
+   section eyebrows, the "STRATÉGIE & SÉCURITÉ" line, etc. */
+.type-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-body-sm);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  line-height: 1.2;
+}
+
+.type-label {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-mid);
+  text-transform: uppercase;
+  color: var(--fg-2);
+  line-height: 1.2;
+}
+
+.type-body      { font-family: var(--font-sans); font-size: var(--fs-body);    line-height: var(--lh-body); color: var(--fg-1); font-weight: var(--fw-regular); }
+.type-body-lg   { font-family: var(--font-sans); font-size: var(--fs-body-lg); line-height: var(--lh-body); color: var(--fg-1); font-weight: var(--fw-regular); }
+.type-body-sm   { font-family: var(--font-sans); font-size: var(--fs-body-sm); line-height: var(--lh-body); color: var(--fg-2); font-weight: var(--fw-regular); }
+.type-caption   { font-family: var(--font-sans); font-size: var(--fs-caption);line-height: 1.4;           color: var(--fg-3); font-weight: var(--fw-regular); }
+.type-mono      { font-family: var(--font-mono); font-size: var(--fs-body-sm);line-height: var(--lh-body); color: var(--fg-1); }
+
+.type-link {
+  color: var(--brand-gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-std),
+              color var(--dur-fast) var(--ease-std);
+}
+.type-link:hover { border-bottom-color: var(--brand-gold); color: var(--brand-gold-bright); }
+
+/* ===========================================================
+   BASE ELEMENTS (scoped — opt-in via .mallet class)
+   =========================================================== */
+.mallet {
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.mallet h1 { font: var(--fw-bold) var(--fs-h1)/var(--lh-tight) var(--font-sans); letter-spacing: var(--ls-tight); color: var(--fg-1); margin: 0 0 var(--sp-5); }
+.mallet h2 { font: var(--fw-semibold) var(--fs-h2)/var(--lh-snug) var(--font-sans); color: var(--fg-1); margin: 0 0 var(--sp-4); }
+.mallet h3 { font: var(--fw-semibold) var(--fs-h3)/var(--lh-snug) var(--font-sans); color: var(--fg-1); margin: 0 0 var(--sp-3); }
+.mallet h4 { font: var(--fw-semibold) var(--fs-h4)/var(--lh-snug) var(--font-sans); color: var(--fg-1); margin: 0 0 var(--sp-3); }
+.mallet p  { margin: 0 0 var(--sp-4); }
+.mallet a  { color: var(--brand-gold); text-decoration: none; border-bottom: 1px solid transparent; }
+.mallet a:hover { border-bottom-color: var(--brand-gold); color: var(--brand-gold-bright); }
+.mallet code, .mallet pre { font-family: var(--font-mono); }
+
+/* Signature gold rule — matches top/bottom lines on the card */
+.rule-gold {
+  height: var(--rule-standard);
+  background: var(--brand-gold);
+  border: 0;
+  margin: 0;
+  width: 100%;
+}
+.rule-gold-soft {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-gold) 20%, var(--brand-gold) 80%, transparent);
+  border: 0;
+}
