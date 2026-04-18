@@ -1,35 +1,66 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
-{% block description %}{{ page.description | default(value=page.summary) }}{% endblock description %}
+{% block title %}{{ page.title }} — Pensées · Mallet Stratégie et Sécurité{% endblock title %}
+{% block description %}{{ page.description | default(value=page.summary | default(value="")) }}{% endblock description %}
 
 {% block content %}
-<main class="card-layout">
-  <div class="gold-rule top"></div>
 
-  <nav class="breadcrumb">
-    <a href="{{ get_url(path='@/thoughts/_index.md') }}" class="back-link">← Retour aux pensées</a>
-  </nav>
-
-  <article class="thought-content">
-    <header class="thought-header">
-      <h1 class="thought-title-single">{{ page.title }}</h1>
-      <div class="thought-meta">
-        <time datetime="{{ page.date }}">{{ page.date | date(format='%d %B %Y') }}</time>
-      </div>
-    </header>
-
-    <div class="gold-rule"></div>
-
-    <div class="prose">
-      {{ page.content | safe }}
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand-link" href="{{ get_url(path='@/_index.md') }}">
+        <img src="{{ get_url(path='logo.png') }}" alt="" />
+        <div class="brand-link__text">
+          <span class="brand-link__name">MALLET</span>
+          <span class="brand-link__tag">Stratégie &amp; Sécurité</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#expertise" data-fr>Expertise</a><a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#expertise" data-en style="display:none">Expertise</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#prestations" data-fr>Prestations</a><a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#prestations" data-en style="display:none">Services</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" data-fr>Parcours</a><a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" data-en style="display:none">Résumé</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" aria-current="page" data-fr>Pensées</a><a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" aria-current="page" data-en style="display:none">Thoughts</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#contact">Contact</a>
+        <div class="lang-toggle">
+          <button class="lang-toggle__btn" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-toggle__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
     </div>
+  </header>
+
+  <section class="doc-header">
+    <div class="wrap wrap--narrow">
+      <a class="article-back" href="{{ get_url(path='@/thoughts/_index.md') }}">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+        <span data-fr>Toutes les pensées</span><span data-en style="display:none">All thoughts</span>
+      </a>
+      {% if page.date %}
+      <div class="doc-header__eyebrow">{{ page.date | date(format='%Y · %m') }}</div>
+      {% endif %}
+      <h1 class="doc-header__title">{{ page.title }}</h1>
+      {% if page.extra.tag %}
+      <div class="doc-header__meta">
+        <span>{{ page.extra.tag }}</span>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <article class="wrap wrap--narrow article-body">
+    {{ page.content | safe }}
   </article>
 
-  <div class="gold-rule bottom"></div>
-
-  <footer class="motto">
-    <em>Dictum Meum Solidus Meus</em>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="site-footer__motto">Dictum Meum Solidus Meus.</p>
+      <p class="site-footer__translation" data-fr>Ma parole, ma monnaie.</p>
+      <p class="site-footer__translation" data-en style="display:none">My word, my currency.</p>
+      <div class="site-footer__meta">
+        <span>Mallet Stratégie et Sécurité</span>
+        <span>Quentin Mallet</span>
+        <a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a>
+      </div>
+    </div>
   </footer>
-</main>
+
 {% endblock content %}
