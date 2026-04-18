@@ -1,147 +1,327 @@
 {% extends "base.html" %}
 
+{% block title %}Parcours — Quentin Mallet · Mallet Stratégie et Sécurité{% endblock title %}
+{% block description %}CV de Quentin Mallet — Expert cybersécurité indépendant. Expériences, certifications et compétences.{% endblock description %}
+
 {% block content %}
-<main class="card-layout">
-  <div class="gold-rule top"></div>
 
-  <section class="hero">
-    <img src="{{ get_url(path='logo.png') }}" alt="MALLET Logo" class="logo">
-    <h1 class="company-name">Quentin Mallet</h1>
-    <h2 class="company-subtitle">Expert Cybersécurité</h2>
-    <p class="taglines">
-      <a href="{{ get_url(path='/') }}" class="back-link">← Retour à l'accueil</a>
-    </p>
-  </section>
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand-link" href="{{ get_url(path='@/_index.md') }}" aria-label="Mallet Stratégie et Sécurité — accueil">
+        <img src="{{ get_url(path='logo.png') }}" alt="" />
+        <div class="brand-link__text">
+          <span class="brand-link__name">MALLET</span>
+          <span class="brand-link__tag">Stratégie &amp; Sécurité</span>
+        </div>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#expertise" data-fr>Expertise</a><a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#expertise" data-en style="display:none">Expertise</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#prestations" data-fr>Prestations</a><a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#prestations" data-en style="display:none">Services</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" aria-current="page" data-fr>Parcours</a><a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" aria-current="page" data-en style="display:none">Résumé</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" data-fr>Pensées</a><a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" data-en style="display:none">Thoughts</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/_index.md') }}#contact">Contact</a>
+        <div class="lang-toggle" role="group" aria-label="Langue">
+          <button class="lang-toggle__btn" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-toggle__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-  <div class="gold-rule"></div>
-
-  <section class="about">
-    <h3>Expert Cybersécurité Indépendant</h3>
-    <p class="body-text">
-      Spécialiste en sécurité des systèmes d'information avec plus de 8 ans d'expérience.
-      Audit ISO27001, gouvernance de la sécurité, architecture sécurisée et gestion des risques.
-    </p>
-  </section>
-
-  <div class="gold-rule"></div>
-
-  <section class="experience">
-    <h3>Expérience</h3>
-    <ul class="experience-list">
-      <li><strong>2025-Présent:</strong> Expert Cybersécurité Indépendant — Audit, R&D, DevSecOps</li>
-      <li><strong>2022-2025:</strong> RSSI Silae Group — Certification ISO27001, 1M clients, 7.5M bulletins/mois</li>
-      <li><strong>2020-2022:</strong> Responsable Sécurité SI Majorel — Threat hunting, conformité, gestion de crise</li>
-      <li><strong>2019-2020:</strong> Analyste Sécurité MAIF (Alten) — SIEM, RGPD, architecture</li>
-      <li><strong>2018-2019:</strong> Expert Sécurité Vientech — SmartGrids, microservices, audit réseau</li>
-    </ul>
-  </section>
-
-  <div class="gold-rule"></div>
-
-  <section class="certifications">
-    <h3>Certifications & Formation</h3>
-    <ul class="cert-list">
-      <li><strong>2026:</strong> Auditeur ISO27001 AFNOR Certification</li>
-      <li><strong>2022:</strong> PMP (Project Management Professional)</li>
-      <li><strong>2021:</strong> ISO27001 Lead Implementer</li>
-      <li><strong>2016-2018:</strong> Master CRYPTIS — Sécurité informatique, Université de Limoges</li>
-    </ul>
-  </section>
-
-  <div class="gold-rule"></div>
-
-  <section class="skills">
-    <h3>Compétences Clés</h3>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h4>Cybersécurité</h4>
-        <ul>
-          <li>Pentesting (web, réseau, Active Directory)</li>
-          <li>ISO 27001 — implémentation & conformité</li>
-          <li>Gestion d'incidents & crises</li>
-          <li>Cryptographie appliquée</li>
-          <li>Conception d'outils offensifs</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h4>Systèmes & Infrastructure</h4>
-        <ul>
-          <li>NixOS / Nix — flakes, binary caches</li>
-          <li>Administration Linux avancée</li>
-          <li>Observabilité — OpenTelemetry, Prometheus, Grafana, Loki, Tempo, Alloy</li>
-          <li>PostgreSQL</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h4>Développement</h4>
-        <ul>
-          <li>Elixir / OTP — services, supervision trees</li>
-          <li>Rust — systèmes, CLI, NIFs</li>
-          <li>Python — scripting, automation</li>
-          <li>Android — applications sécurité</li>
-          <li>TLA+ — spécifications formelles</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h4>Architecture & Design</h4>
-        <ul>
-          <li>Systèmes distribués</li>
-          <li>Design algorithmique</li>
-          <li>Méthodes formelles</li>
-          <li>Migration pattern recognition</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h4>Management & Organisation</h4>
-        <ul>
-          <li>PMP certifié — gestion de projet</li>
-          <li>Management d'équipes</li>
-          <li>Coaching & certifications</li>
-          <li>Structuration organisationnelle</li>
-        </ul>
+  <section class="doc-header">
+    <div class="wrap">
+      <div class="doc-header__grid">
+        <div>
+          <div class="doc-header__eyebrow" data-fr>Curriculum vitæ</div>
+          <div class="doc-header__eyebrow" data-en style="display:none">Résumé</div>
+          <h1 class="doc-header__title">Quentin Mallet</h1>
+          <div class="doc-header__meta">
+            <span><b data-fr>Expert</b><b data-en style="display:none">Expert</b> <span data-fr>Cybersécurité Indépendant</span><span data-en style="display:none">Cybersecurity</span></span>
+            <span><b>ISO 27001</b> <span data-fr>Auditeur AFNOR</span><span data-en style="display:none">Auditor AFNOR</span></span>
+            <span><b>PMP</b> · <b>IR(A)</b></span>
+            <span><b data-fr>Langues</b><b data-en style="display:none">Languages</b> FR · EN</span>
+          </div>
+          <div class="doc-header__links">
+            <a class="doc-link" href="https://www.linkedin.com/in/quentin-mallet3" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.13 2.07 2.07 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+              LinkedIn
+            </a>
+            <a class="doc-link" href="mailto:quentin.mallet@mstratsec.biz">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              quentin.mallet@mstratsec.biz
+            </a>
+          </div>
+        </div>
+        <div class="doc-portrait" data-reveal>
+          <img src="{{ get_url(path='portrait.jpg') }}" alt="Quentin Mallet" />
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="gold-rule"></div>
+  <div class="wrap">
 
-  <section class="accomplishments">
-    <h3>Réalisations Notables</h3>
-    <ul class="accomplishments-list">
-      <li><strong>Certification ISO27001 Silae Group</strong> — Certification réussie pour 1M clients, 7.5M bulletins/mois</li>
-      <li><strong>Audits DevSecOps</strong> — Revues de sécurité applicative et infrastructure</li>
-      <li><strong>Audits ISO27001</strong> — Audits de conformité et implémentation</li>
-      <li><strong>Firmware Rust pour bornes de recharge VE</strong> — Développement de firmware embarqué sécurisé</li>
-      <li><strong>Applications de sécurité Rust</strong> — Solutions multi-plateformes (Windows, Linux)</li>
-      <li><strong>Automatisation Python</strong> — Protection de fichiers et automatisation</li>
-      <li><strong>Contributions Nixpkgs</strong> — Contributions open source à l'écosystème Nix</li>
-      <li><strong>Analyse cryptomonnaies</strong> — Analyse de domaine et développement d'applications (Rust)</li>
-      <li><strong>Gestion grands comptes</strong> — Négociations contrats sécurité (Big4, FAANG) pour tiers</li>
-      <li><strong>Audit applicatif</strong> — Revues de sécurité et architecture</li>
-      <li><strong>Spécifications TLA+</strong> — Modélisation formelle de systèmes distribués</li>
-      <li><strong>TPRM</strong> — Third-Party Risk Management</li>
-    </ul>
-  </section>
+    <section class="cv-section">
+      <div class="cv-section__head">
+        <span class="cv-section__label" data-fr>I · Expérience</span><span class="cv-section__label" data-en style="display:none">I · Experience</span>
+        <h2 class="cv-section__title" data-fr>Direction sécurité, conseil et audit ISO 27001.</h2>
+        <h2 class="cv-section__title" data-en style="display:none">Security leadership, counsel and ISO 27001 audit.</h2>
+      </div>
 
-  <div class="gold-rule"></div>
+      <div class="timeline">
+        <div class="timeline__items">
 
-  <section class="contact">
-    <p class="contact-name">Contact</p>
-    <p class="contact-detail">
-      <a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a>
-    </p>
-    <p class="contact-detail">
-      <a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a>
-    </p>
-    <p class="contact-detail contact-pgp">
-      <a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a>
-    </p>
-  </section>
+          <div class="timeline__item" data-reveal>
+            <div class="timeline__period">2025 — <span data-fr>présent</span><span data-en style="display:none">now</span></div>
+            <div>
+              <h3 data-fr>Expert Cybersécurité Indépendant</h3><h3 data-en style="display:none">Independent Cybersecurity Expert</h3>
+              <div class="org">Mallet Stratégie et Sécurité</div>
+              <ul>
+                <li data-fr>Missions d'audit et maturité DevSecOps.</li>
+                <li data-en style="display:none">Audit engagements and DevSecOps maturity.</li>
+                <li data-fr>Gouvernance ISO 27001 et R&amp;D sécurité.</li>
+                <li data-en style="display:none">ISO 27001 governance and security R&amp;D.</li>
+                <li data-fr>Architectures sécurisées haute disponibilité.</li>
+                <li data-en style="display:none">Secure, high-availability architectures.</li>
+                <li data-fr>SIEM, alerting et monitoring (OpenTelemetry).</li>
+                <li data-en style="display:none">SIEM, alerting and monitoring (OpenTelemetry).</li>
+                <li data-fr>Développement applicatif Android, administration systèmes et réseaux.</li>
+                <li data-en style="display:none">Android application development, systems and network administration.</li>
+              </ul>
+            </div>
+          </div>
 
-  <div class="gold-rule bottom"></div>
+          <div class="timeline__item" data-reveal data-reveal-delay="1">
+            <div class="timeline__period">2022 — 2025</div>
+            <div>
+              <h3>RSSI</h3>
+              <div class="org">Silae Group</div>
+              <p data-fr>Direction de la sécurité pour le numéro 1 du SIRH en France : 1 000 000 de clients, 7 500 000 bulletins de paie par mois. Construction du programme sécurité jusqu'à la certification ISO 27001.</p>
+              <p data-en style="display:none">Security leadership at France's leading HRIS: 1,000,000 clients, 7,500,000 payslips a month. Built the security programme through to ISO 27001 certification.</p>
+              <ul>
+                <li data-fr>Élaboration et conduite de la stratégie sécurité, conformité et certifications.</li>
+                <li data-en style="display:none">Security, compliance and certifications strategy: design and delivery.</li>
+                <li data-fr>Criticité des données (paie, santé) et environnement réglementaire exigeant.</li>
+                <li data-en style="display:none">Highly sensitive data (payroll, health) and demanding regulatory context.</li>
+                <li data-fr>Gestion de grands comptes et interlocuteurs exécutifs.</li>
+                <li data-en style="display:none">Enterprise-account and executive stakeholder management.</li>
+              </ul>
+            </div>
+          </div>
 
-  <footer class="motto">
-    <em>Dictum Meum Solidus Meus</em>
+          <div class="timeline__item" data-reveal data-reveal-delay="2">
+            <div class="timeline__period">2022</div>
+            <div>
+              <h3>RSSI</h3>
+              <div class="org">Jenji</div>
+              <p data-fr>Responsable de la sécurité du système d'information.</p>
+              <p data-en style="display:none">Head of information-system security.</p>
+            </div>
+          </div>
+
+          <div class="timeline__item" data-reveal data-reveal-delay="3">
+            <div class="timeline__period">2020 — 2022</div>
+            <div>
+              <h3 data-fr>Responsable Sécurité Site (DRI)</h3><h3 data-en style="display:none">Site Security Lead (DRI)</h3>
+              <div class="org">Majorel</div>
+              <ul>
+                <li data-fr>Threat hunting multi-source (physique et cyber).</li>
+                <li data-en style="display:none">Multi-source threat hunting (physical and cyber).</li>
+                <li data-fr>Prise en charge d'incidents : tentatives d'intrusion, fuites de données.</li>
+                <li data-en style="display:none">Incident response: intrusion attempts, data leaks.</li>
+                <li data-fr>Collaboration SOC (alerting, patch management, scans de vulnérabilités) — SIEM Rapid7.</li>
+                <li data-en style="display:none">SOC collaboration (alerting, patch management, vulnerability scans) — Rapid7 SIEM.</li>
+                <li data-fr>Audits internes ISO 27001 et référentiels client ; suivi conformité PSSI.</li>
+                <li data-en style="display:none">Internal ISO 27001 audits and client reference frameworks; ISSP compliance.</li>
+                <li data-fr>Programmation d'outils de sécurité (PowerShell, Rust) déployés sur 4 000+ machines.</li>
+                <li data-en style="display:none">Security tooling (PowerShell, Rust) deployed to 4,000+ machines.</li>
+                <li data-fr>Gestion de crise en environnement anglophone ; grands comptes internationaux.</li>
+                <li data-en style="display:none">Crisis management in English-speaking environments; international enterprise accounts.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__item" data-reveal data-reveal-delay="4">
+            <div class="timeline__period">2019 — 2020</div>
+            <div>
+              <h3 data-fr>Analyste Sécurité MAIF</h3><h3 data-en style="display:none">Security Analyst · MAIF</h3>
+              <div class="org">Alten Group</div>
+              <ul>
+                <li data-fr>SIEM ELK et Splunk ; écriture d'alertes basées sur extraction de logs.</li>
+                <li data-en style="display:none">ELK and Splunk SIEM; log-extraction-based alerting.</li>
+                <li data-fr>Suivi projet architecture logicielle et réseau ; assistance aux équipes de dev.</li>
+                <li data-en style="display:none">Software &amp; network architecture project oversight; developer assistance.</li>
+                <li data-fr>Suivi technique de la mise en conformité RGPD.</li>
+                <li data-en style="display:none">Technical follow-through on GDPR compliance.</li>
+                <li data-fr>Architecture systèmes et réseaux pour projets internationaux.</li>
+                <li data-en style="display:none">Systems and network architecture for international projects.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__item" data-reveal data-reveal-delay="5">
+            <div class="timeline__period">2018 — 2019</div>
+            <div>
+              <h3 data-fr>Consultant Cybersécurité</h3><h3 data-en style="display:none">Cybersecurity Consultant</h3>
+              <div class="org">Alten Group</div>
+              <p data-fr>Missions conseil et intégration sécurité pour clients industriels et tertiaires.</p>
+              <p data-en style="display:none">Advisory and security-integration engagements for industrial and services clients.</p>
+            </div>
+          </div>
+
+          <div class="timeline__item" data-reveal data-reveal-delay="6">
+            <div class="timeline__period">2018 — 2019</div>
+            <div>
+              <h3 data-fr>Expert Sécurité · SmartGrids</h3><h3 data-en style="display:none">Security Expert · SmartGrids</h3>
+              <div class="org">Vientech</div>
+              <ul>
+                <li data-fr>Audit, monitoring et conception d'architectures réseau IPv4.</li>
+                <li data-en style="display:none">IPv4 network architecture audit, monitoring and design.</li>
+                <li data-fr>Automatisation Ansible ; conformité pare-feu et configurations réseau.</li>
+                <li data-en style="display:none">Ansible automation; firewall and network-configuration compliance.</li>
+                <li data-fr>Programmation C : chiffrement, obfuscation, firmware d'un point d'accès réseau.</li>
+                <li data-en style="display:none">C programming: encryption, obfuscation, firmware for a network access point.</li>
+                <li data-fr>Microservices Docker, Rancher et Kubernetes ; coordination projets internationaux.</li>
+                <li data-en style="display:none">Docker, Rancher and Kubernetes microservices; international project coordination.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <div class="cv-section__head">
+        <span class="cv-section__label" data-fr>II · Certifications</span><span class="cv-section__label" data-en style="display:none">II · Credentials</span>
+        <h2 class="cv-section__title" data-fr>Références formelles et continuité de la pratique.</h2>
+        <h2 class="cv-section__title" data-en style="display:none">Formal credentials and continued practice.</h2>
+      </div>
+      <div class="cred-grid">
+        <div class="cred" data-reveal>
+          <span class="cred__name">ISO 27001 Auditeur AFNOR</span>
+          <span class="cred__year">2026</span>
+          <span class="cred__desc" data-fr>Auditeur certifié AFNOR Certification.</span>
+          <span class="cred__desc" data-en style="display:none">AFNOR Certification certified auditor.</span>
+        </div>
+        <div class="cred" data-reveal data-reveal-delay="1">
+          <span class="cred__name">ISO 27001 Auditor</span>
+          <span class="cred__year">2025</span>
+          <span class="cred__desc" data-fr>Audit formel de conformité ISO 27001.</span>
+          <span class="cred__desc" data-en style="display:none">Formal ISO 27001 compliance auditing.</span>
+        </div>
+        <div class="cred" data-reveal data-reveal-delay="2">
+          <span class="cred__name">PMP — Project Management Professional</span>
+          <span class="cred__year">2022</span>
+          <span class="cred__desc" data-fr>Pilotage de projets et programmes.</span>
+          <span class="cred__desc" data-en style="display:none">Project and programme management.</span>
+        </div>
+        <div class="cred" data-reveal data-reveal-delay="3">
+          <span class="cred__name">IR(A) — Instrument Rating (Airplane)</span>
+          <span class="cred__year">2022</span>
+          <span class="cred__desc" data-fr>Qualification vol aux instruments.</span>
+          <span class="cred__desc" data-en style="display:none">Instrument-flight qualification.</span>
+        </div>
+        <div class="cred" data-reveal data-reveal-delay="4">
+          <span class="cred__name">ISO 27001 Lead Implementer</span>
+          <span class="cred__year">2021</span>
+          <span class="cred__desc" data-fr>Mise en œuvre d'un SMSI conforme.</span>
+          <span class="cred__desc" data-en style="display:none">Implementation of a compliant ISMS.</span>
+        </div>
+        <div class="cred" data-reveal data-reveal-delay="5">
+          <span class="cred__name">PPL(A) — Private Pilot Licence</span>
+          <span class="cred__year">2021</span>
+          <span class="cred__desc" data-fr>Licence de pilote privé avion.</span>
+          <span class="cred__desc" data-en style="display:none">Private pilot licence, airplane.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <div class="cv-section__head">
+        <span class="cv-section__label" data-fr>III · Formation</span><span class="cv-section__label" data-en style="display:none">III · Education</span>
+        <h2 class="cv-section__title" data-fr>Cryptographie, sécurité informatique et langues.</h2>
+        <h2 class="cv-section__title" data-en style="display:none">Cryptography, information security and languages.</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline__items">
+          <div class="timeline__item" data-reveal>
+            <div class="timeline__period">2016 — 2018</div>
+            <div>
+              <h3 data-fr>Master CRYPTIS — Sécurité Informatique</h3><h3 data-en style="display:none">Master CRYPTIS — Information Security</h3>
+              <div class="org" data-fr>Université de Limoges</div><div class="org" data-en style="display:none">University of Limoges</div>
+              <p data-fr>Cryptographie appliquée, sécurité des systèmes, audit et analyse formelle.</p>
+              <p data-en style="display:none">Applied cryptography, systems security, audit and formal analysis.</p>
+            </div>
+          </div>
+          <div class="timeline__item" data-reveal data-reveal-delay="1">
+            <div class="timeline__period">2013 — 2016</div>
+            <div>
+              <h3 data-fr>Licence Informatique</h3><h3 data-en style="display:none">BSc Computer Science</h3>
+              <div class="org" data-fr>Université de Poitiers</div><div class="org" data-en style="display:none">University of Poitiers</div>
+            </div>
+          </div>
+          <div class="timeline__item" data-reveal data-reveal-delay="2">
+            <div class="timeline__period">2018</div>
+            <div>
+              <h3>CLES B2 Anglais</h3>
+              <div class="org" data-fr>Université de Limoges</div><div class="org" data-en style="display:none">University of Limoges</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <div class="cv-section__head">
+        <span class="cv-section__label" data-fr>IV · Compétences</span><span class="cv-section__label" data-en style="display:none">IV · Skills</span>
+        <h2 class="cv-section__title" data-fr>Un outillage stable, appliqué au cas par cas.</h2>
+        <h2 class="cv-section__title" data-en style="display:none">A stable toolkit, applied case by case.</h2>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-col" data-reveal>
+          <h4 data-fr>Gouvernance</h4><h4 data-en style="display:none">Governance</h4>
+          <ul>
+            <li>ISO 27001 · PSSI · Conformité RGPD</li>
+            <li data-fr>Programme sécurité &amp; certifications</li><li data-en style="display:none">Security programme &amp; certifications</li>
+            <li data-fr>Gestion de crise anglophone</li><li data-en style="display:none">Crisis management (English)</li>
+            <li>PMP · COPIL / COPROJ</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-reveal data-reveal-delay="1">
+          <h4 data-fr>Défensif &amp; SOC</h4><h4 data-en style="display:none">Defensive &amp; SOC</h4>
+          <ul>
+            <li>SIEM : ELK · Splunk · Rapid7</li>
+            <li>OpenTelemetry · Alerting</li>
+            <li data-fr>Threat hunting multi-source</li><li data-en style="display:none">Multi-source threat hunting</li>
+            <li data-fr>Patch &amp; vulnerability management</li><li data-en style="display:none">Patch &amp; vulnerability management</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-reveal data-reveal-delay="2">
+          <h4 data-fr>Infra &amp; Développement</h4><h4 data-en style="display:none">Infra &amp; Development</h4>
+          <ul>
+            <li>Linux · Windows · Réseaux IPv4</li>
+            <li>Ansible · Docker · Kubernetes · Rancher</li>
+            <li>PowerShell · Python · Rust · C · Elixir</li>
+            <li>PostgreSQL · SQLite · ElasticSearch</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="site-footer__motto">Dictum Meum Solidus Meus.</p>
+      <p class="site-footer__translation" data-fr>Ma parole, ma monnaie.</p>
+      <p class="site-footer__translation" data-en style="display:none">My word, my currency.</p>
+      <div class="site-footer__meta">
+        <span>Mallet Stratégie et Sécurité</span>
+        <span>Quentin Mallet</span>
+        <a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a>
+      </div>
+    </div>
   </footer>
-</main>
+
 {% endblock content %}
