@@ -1,168 +1,298 @@
 {% extends "base.html" %}
 
+{% block title %}Mallet Stratégie et Sécurité — Expert Cybersécurité · Consultant Informatique{% endblock title %}
+{% block description %}Quentin Mallet — Expert cybersécurité indépendant. Conseil, audit et exécution en sécurité des systèmes d'information pour dirigeants et organisations exigeantes.{% endblock description %}
+
 {% block content %}
-<main class="card-layout">
-  <div class="gold-rule top"></div>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand-link" href="{{ get_url(path='@/_index.md') }}" aria-label="Mallet Stratégie et Sécurité — accueil">
+        <img src="{{ get_url(path='logo.png') }}" alt="" />
+        <div class="brand-link__text">
+          <span class="brand-link__name">MALLET</span>
+          <span class="brand-link__tag">Stratégie &amp; Sécurité</span>
+        </div>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a class="site-nav__link" href="#expertise" data-fr>Expertise</a><a class="site-nav__link" href="#expertise" data-en style="display:none">Expertise</a>
+        <a class="site-nav__link" href="#prestations" data-fr>Prestations</a><a class="site-nav__link" href="#prestations" data-en style="display:none">Services</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" data-fr>Parcours</a><a class="site-nav__link" href="{{ get_url(path='@/cv.md') }}" data-en style="display:none">Résumé</a>
+        <a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" data-fr>Pensées</a><a class="site-nav__link" href="{{ get_url(path='@/thoughts/_index.md') }}" data-en style="display:none">Thoughts</a>
+        <a class="site-nav__link" href="#contact">Contact</a>
+        <div class="lang-toggle" role="group" aria-label="Langue">
+          <button class="lang-toggle__btn" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-toggle__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
 
   <section class="hero">
-    <img src="{{ get_url(path='logo.png') }}" alt="MALLET Logo" class="logo">
-    <h1 class="company-name">MALLET</h1>
-    <h2 class="company-subtitle">STRATÉGIE &amp; SÉCURITÉ</h2>
-    <p class="taglines">
-      Expert Cybersécurité &nbsp;&mdash;&nbsp; Consultant Informatique
-    </p>
-  </section>
+    <div class="wrap hero__inner">
+      <img class="hero__logo" src="{{ get_url(path='logo.png') }}" alt="Blason Mallet" data-reveal />
 
-  <div class="gold-rule"></div>
+      <div class="hero__mark" data-reveal data-reveal-delay="1">
+        <span class="hero__mark-name">MALLET</span>
+        <span class="hero__mark-tag">Stratégie &amp; Sécurité</span>
+      </div>
 
-  <section class="about">
-    <h3>Expert Cybersécurité Indépendant</h3>
-    <p class="body-text">
-      Plus de 8 ans d'expérience en sécurité des systèmes d'information.<br>
-      Certification ISO27001, gouvernance, architecture sécurisée et gestion des risques.
-    </p>
-    <p class="body-text" style="margin-top: 1rem;">
-      <a href="{{ get_url(path='cv') }}" class="cv-link">Voir le CV complet →</a>
-      &nbsp;&nbsp;
-      <a href="{{ get_url(path='@/thoughts/_index.md') }}" class="cv-link">Pensées →</a>
-    </p>
-  </section>
+      <hr class="hero__rule" data-reveal data-reveal-delay="2" />
 
-  <div class="gold-rule"></div>
+      <p class="hero__headline" data-reveal data-reveal-delay="3">
+        <span data-fr>Protéger ce qui ne peut être remplacé.</span>
+        <span data-en style="display:none">Protect what cannot be replaced.</span>
+      </p>
 
-  <section class="services">
-    <h3>Prestations</h3>
-    <div class="services-grid">
-      <details class="service-card">
-        <summary><h4>RSSI Temps Partagé</h4></summary>
-        <div class="service-content">
-          <p>Direction de la sécurité informatique à temps partagé. Mise en place de programmes de sécurité, pilotage de la conformité et gestion des risques cyber.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Audits de Sécurité</h4></summary>
-        <div class="service-content">
-          <p>Audits techniques et organisationnels. Pentesting, revues de code, audits ISO27001, DevSecOps et architecture. Rapports actionnables avec priorisation des risques.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Gestion de Programme Sécurité</h4></summary>
-        <div class="service-content">
-          <p>Pilotage de programmes de sécurité complexes. Coordination multi-équipes, roadmap sécurité, suivi de conformité réglementaire et certification ISO27001.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Architecture & Consulting</h4></summary>
-        <div class="service-content">
-          <p>Conseil en architecture sécurisée. Design de solutions, threat modeling, spécifications formelles (TLA+), revue d'architecture et accompagnement DevSecOps.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Coordinated Disclosure</h4></summary>
-        <div class="service-content">
-          <p>Coordination de divulgation responsable entre chercheurs en sécurité et entreprises. Médiation, gestion de processus de remédiation et communication sécurisée.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Provisionnement Sécurisé</h4></summary>
-        <div class="service-content">
-          <p>Provisionnement et configuration sécurisée d'appareils. Déploiement de flotte, gestion de configuration, hardening et conformité des endpoints.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Infrastructure Cybersécurité</h4></summary>
-        <div class="service-content">
-          <p>Administration et déploiement d'infrastructure orientée sécurité. SIEM, EDR, systèmes de détection, architectures zero-trust et environnements durcis.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Développement d'Outils Sécurité</h4></summary>
-        <div class="service-content">
-          <p>Conception et développement d'outils cybersécurité sur mesure. Automatisation sécurité, pipelines DevSecOps, outillage pentest et solutions spécialisées.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
-      <details class="service-card">
-        <summary><h4>Intégration SOC Tiers</h4></summary>
-        <div class="service-content">
-          <p>Intégration avec Security Operations Centers externes. Connexion SIEM, partage de telemetrie, orchestration d'alertes et coordination de réponse aux incidents.</p>
-          <div class="service-contact">
-            <p class="contact-name">Quentin Mallet</p>
-            <p class="contact-detail"><a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a></p>
-            <p class="contact-detail"><a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a></p>
-            <p class="contact-detail contact-pgp"><a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a></p>
-          </div>
-        </div>
-      </details>
+      <p class="hero__role" data-reveal data-reveal-delay="4">
+        <span data-fr>Expert Cybersécurité · Consultant Informatique</span>
+        <span data-en style="display:none">Cybersecurity Expert · IT Consultant</span>
+      </p>
+
+      <div class="hero__cta" data-reveal data-reveal-delay="5">
+        <a class="btn btn--primary" href="#contact">
+          <span data-fr>Prendre rendez-vous</span>
+          <span data-en style="display:none">Book a call</span>
+          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
-  <div class="gold-rule"></div>
+  <section class="section" id="expertise">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <div class="section__eyebrow">
+            <span data-fr>Expertise</span>
+            <span data-en style="display:none">Expertise</span>
+          </div>
+          <h2 class="section__title">
+            <span data-fr>Huit années de pratique senior en sécurité des systèmes d'information.</span>
+            <span data-en style="display:none">Eight years of senior practice in information security.</span>
+          </h2>
+        </div>
+        <div class="section__num">01 / 04</div>
+      </div>
 
-  <section class="contact">
-    <p class="contact-name">Quentin Mallet</p>
-    <p class="contact-detail">
-      <a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a>
-    </p>
-    <p class="contact-detail">
-      <a href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">SimpleX Chat</a>
-    </p>
-    <p class="contact-detail contact-pgp">
-      <a href="{{ get_url(path='pubkey.asc') }}" download>PGP Public Key</a>
-    </p>
+      <div class="about about--no-portrait">
+        <div class="about__text" data-reveal data-reveal-delay="1">
+          <p data-fr>J'accompagne les dirigeants, les cabinets et les équipes techniques dans la mise en place de défenses proportionnées à leurs risques réels — audits d'exposition, gouvernance de la donnée, durcissement des postes, réponse à incident.</p>
+          <p data-en style="display:none">I advise executives, law firms and technical teams on building defences proportionate to their real risks — exposure audits, data governance, endpoint hardening, incident response.</p>
+
+          <p data-fr>Ma pratique est volontairement artisanale. Un seul interlocuteur, des livrables écrits, une confidentialité absolue. Je ne vends pas de plateforme ; je travaille sur mesure, pour un nombre restreint de clients qui exigent du sérieux et de la discrétion.</p>
+          <p data-en style="display:none">The practice is deliberately artisanal. One point of contact, written deliverables, absolute confidentiality. I sell no platform; I work bespoke, for a small number of clients who demand rigour and discretion.</p>
+
+          <div class="about__proof">
+            <div class="proof-stat">
+              <span class="proof-stat__value">8+</span>
+              <span class="proof-stat__label" data-fr>Années de pratique</span>
+              <span class="proof-stat__label" data-en style="display:none">Years of practice</span>
+            </div>
+            <div class="proof-stat">
+              <span class="proof-stat__value">ISO</span>
+              <span class="proof-stat__label">27001 Certified</span>
+            </div>
+            <div class="proof-stat">
+              <span class="proof-stat__value">1:1</span>
+              <span class="proof-stat__label" data-fr>Conseil direct</span>
+              <span class="proof-stat__label" data-en style="display:none">Direct counsel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <div class="gold-rule bottom"></div>
+  <section class="section" id="prestations">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <div class="section__eyebrow">
+            <span data-fr>Prestations</span>
+            <span data-en style="display:none">Services</span>
+          </div>
+          <h2 class="section__title">
+            <span data-fr>Trois piliers, une seule main.</span>
+            <span data-en style="display:none">Three pillars, one hand.</span>
+          </h2>
+        </div>
+        <div class="section__num">02 / 04</div>
+      </div>
 
-  <footer class="motto">
-    <em>Dictum Meum Solidus Meus</em>
+      <div class="pillars">
+
+        <article class="pillar" data-reveal>
+          <div class="pillar__head">
+            <span class="pillar__num">I.</span>
+            <span class="pillar__label" data-fr>Pilier</span><span class="pillar__label" data-en style="display:none">Pillar</span>
+          </div>
+          <h3 class="pillar__title">
+            <span data-fr>Stratégie</span>
+            <span data-en style="display:none">Strategy</span>
+          </h3>
+          <p class="pillar__lede" data-fr>Définir une posture de sécurité cohérente avec votre risque, votre secteur et vos obligations. Piloter sans alourdir.</p>
+          <p class="pillar__lede" data-en style="display:none">Define a security posture that matches your risk, your sector and your duties. Steer without weighing down.</p>
+          <ul class="pillar__list">
+            <li data-fr>RSSI temps partagé</li><li data-en style="display:none">Fractional CISO</li>
+            <li data-fr>Gestion de programme sécurité</li><li data-en style="display:none">Security programme management</li>
+            <li data-fr>Conformité ISO 27001</li><li data-en style="display:none">ISO 27001 compliance</li>
+            <li data-fr>Gouvernance de la donnée</li><li data-en style="display:none">Data governance</li>
+          </ul>
+        </article>
+
+        <article class="pillar" data-reveal data-reveal-delay="1">
+          <div class="pillar__head">
+            <span class="pillar__num">II.</span>
+            <span class="pillar__label" data-fr>Pilier</span><span class="pillar__label" data-en style="display:none">Pillar</span>
+          </div>
+          <h3 class="pillar__title">
+            <span data-fr>Audit</span>
+            <span data-en style="display:none">Audit</span>
+          </h3>
+          <p class="pillar__lede" data-fr>Observer sans complaisance. Livrer un état des lieux écrit, priorisé, actionable — jamais un rapport qui dort dans un tiroir.</p>
+          <p class="pillar__lede" data-en style="display:none">Observe without flattery. Deliver a written, prioritised, actionable state of play — never a report that sleeps in a drawer.</p>
+          <ul class="pillar__list">
+            <li data-fr>Audit d'exposition</li><li data-en style="display:none">Exposure audit</li>
+            <li data-fr>Pentesting &amp; revue de code</li><li data-en style="display:none">Pentesting &amp; code review</li>
+            <li data-fr>Revue d'architecture sécurisée</li><li data-en style="display:none">Secure architecture review</li>
+            <li data-fr>Threat modeling &amp; spéc. formelles (TLA+)</li><li data-en style="display:none">Threat modeling &amp; formal specs (TLA+)</li>
+          </ul>
+        </article>
+
+        <article class="pillar" data-reveal data-reveal-delay="2">
+          <div class="pillar__head">
+            <span class="pillar__num">III.</span>
+            <span class="pillar__label" data-fr>Pilier</span><span class="pillar__label" data-en style="display:none">Pillar</span>
+          </div>
+          <h3 class="pillar__title">
+            <span data-fr>Exécution</span>
+            <span data-en style="display:none">Execution</span>
+          </h3>
+          <p class="pillar__lede" data-fr>Mettre les mains dans le cambouis. Déployer, durcir, relier — jusqu'à ce que la mesure tienne d'elle-même.</p>
+          <p class="pillar__lede" data-en style="display:none">Get hands dirty. Deploy, harden, connect — until the control stands on its own.</p>
+          <ul class="pillar__list">
+            <li data-fr>Provisionnement &amp; durcissement</li><li data-en style="display:none">Provisioning &amp; hardening</li>
+            <li data-fr>Infrastructure sécurité (SIEM, EDR)</li><li data-en style="display:none">Security infrastructure (SIEM, EDR)</li>
+            <li data-fr>Intégration SOC tiers</li><li data-en style="display:none">Third-party SOC integration</li>
+            <li data-fr>Coordinated disclosure</li><li data-en style="display:none">Coordinated disclosure</li>
+            <li data-fr>Développement d'outils sur mesure</li><li data-en style="display:none">Bespoke tool development</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <div class="section__eyebrow">
+            <span data-fr>Références</span>
+            <span data-en style="display:none">References</span>
+          </div>
+          <h2 class="section__title">
+            <span data-fr>Un parcours lisible, des pensées publiques.</span>
+            <span data-en style="display:none">A legible career, writing in public.</span>
+          </h2>
+        </div>
+        <div class="section__num">03 / 04</div>
+      </div>
+
+      <div class="split">
+        <a class="card-callout" href="{{ get_url(path='@/cv.md') }}" data-reveal>
+          <span class="card-callout__eyebrow" data-fr>Parcours complet</span>
+          <span class="card-callout__eyebrow" data-en style="display:none">Full résumé</span>
+          <h3 class="card-callout__title" data-fr>Huit ans, trois métiers : construire, auditer, gouverner.</h3>
+          <h3 class="card-callout__title" data-en style="display:none">Eight years, three crafts: build, audit, govern.</h3>
+          <p class="card-callout__text" data-fr>Expériences techniques et de direction dans la sécurité — banque, conseil, industrie. Certifications, publications, langues.</p>
+          <p class="card-callout__text" data-en style="display:none">Technical and leadership experience in security — banking, consulting, industry. Certifications, publications, languages.</p>
+          <span class="card-callout__link">
+            <span data-fr>Voir le CV</span><span data-en style="display:none">View CV</span>
+            <svg class="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a class="card-callout" href="{{ get_url(path='@/thoughts/_index.md') }}" data-reveal data-reveal-delay="1">
+          <span class="card-callout__eyebrow" data-fr>Pensées</span>
+          <span class="card-callout__eyebrow" data-en style="display:none">Thoughts</span>
+          <h3 class="card-callout__title" data-fr>Notes de terrain sur la sécurité, la méthode, le métier.</h3>
+          <h3 class="card-callout__title" data-en style="display:none">Field notes on security, method, and the craft.</h3>
+          <p class="card-callout__text" data-fr>Essais courts, textes longs occasionnels. Pas de calendrier éditorial — uniquement quand j'ai quelque chose à dire.</p>
+          <p class="card-callout__text" data-en style="display:none">Short essays, occasional long pieces. No editorial calendar — only when there is something worth saying.</p>
+          <span class="card-callout__link">
+            <span data-fr>Lire les pensées</span><span data-en style="display:none">Read the thoughts</span>
+            <svg class="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <div class="section__eyebrow">
+            <span data-fr>Contact</span>
+            <span data-en style="display:none">Contact</span>
+          </div>
+          <h2 class="section__title">
+            <span data-fr>Un échange direct, écrit, confidentiel.</span>
+            <span data-en style="display:none">A direct, written, confidential conversation.</span>
+          </h2>
+        </div>
+        <div class="section__num">04 / 04</div>
+      </div>
+
+      <div class="contact">
+        <div data-reveal>
+          <p class="contact__lede" data-fr>Je réponds personnellement à chaque prise de contact. Pour les échanges sensibles, privilégiez SimpleX ou une clé PGP.</p>
+          <p class="contact__lede" data-en style="display:none">I reply personally to every first message. For sensitive exchanges, prefer SimpleX or a PGP key.</p>
+        </div>
+
+        <div class="contact__list" data-reveal data-reveal-delay="1">
+          <a class="contact__row" href="mailto:quentin.mallet@mstratsec.biz">
+            <span class="contact__label">Email</span>
+            <span class="contact__value">quentin.mallet@mstratsec.biz</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="contact__row" href="tel:+33683580019">
+            <span class="contact__label" data-fr>Téléphone</span><span class="contact__label" data-en style="display:none">Phone</span>
+            <span class="contact__value">+33 6 83 58 00 19</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="contact__row" href="https://smp10.simplex.im/a#amr65P4mgAWpWps5eWQpSNvfa3p5R397hSfysKMYYUM">
+            <span class="contact__label">SimpleX</span>
+            <span class="contact__value" data-fr>Messagerie chiffrée</span>
+            <span class="contact__value" data-en style="display:none">Encrypted messaging</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+          <a class="contact__row" href="{{ get_url(path='pubkey.asc') }}">
+            <span class="contact__label">PGP</span>
+            <span class="contact__value" data-fr>Clé publique</span>
+            <span class="contact__value" data-en style="display:none">Public key</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="site-footer__motto">Dictum Meum Solidus Meus.</p>
+      <p class="site-footer__translation" data-fr>Ma parole, ma monnaie.</p>
+      <p class="site-footer__translation" data-en style="display:none">My word, my currency.</p>
+      <div class="site-footer__meta">
+        <span>Mallet Stratégie et Sécurité</span>
+        <span>Quentin Mallet</span>
+        <span data-fr>Conseil en cybersécurité</span>
+        <span data-en style="display:none">Cybersecurity counsel</span>
+        <a href="mailto:quentin.mallet@mstratsec.biz">quentin.mallet@mstratsec.biz</a>
+      </div>
+    </div>
   </footer>
-</main>
+
 {% endblock content %}
