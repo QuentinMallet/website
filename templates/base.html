@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
   <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-  <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
   <link rel="icon" type="image/png" href="{{ get_url(path='logo.png') }}">
   <link rel="apple-touch-icon" href="{{ get_url(path='logo.png') }}">
+  <link rel="stylesheet" href="{{ get_url(path='tokens.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='site.css') }}">
 </head>
 <body>
-  <div class="site-wrapper">
-    {% block content %}{% endblock content %}
-  </div>
+  {% block content %}{% endblock content %}
+  <script src="{{ get_url(path='site.js') }}"></script>
   <script data-goatcounter="https://mstratsec.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+          async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
