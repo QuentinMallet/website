@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stylish Curriculum Vitae
+% LaTeX Template
+% Version 1.0 (18/7/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Stefano (http://stefano.italians.nl/)
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% The main font used in this template, Adobe Garamond Pro, does not 
+% come with Windows by default. You will need to download it in
+% order to get an output as in the preview PDF. Otherwise, change this 
+% font to one that does come with Windows or comment out the font line 
+% to use the default LaTeX font.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, oneside, final]{scrartcl} % Paper options using the scrartcl class
+
+\usepackage{marginnote}
+\usepackage[scratcl]{ragged2e}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{scrlayer-scrpage} % Provides headers and footers configuration
+\usepackage{marvosym} % Allows the use of symbols
+\usepackage[french]{babel}
+
+\hypersetup{
+    pdftitle={CISO Quentin Mallet},
+    pdfsubject={CV CISO/RSSI},
+    pdfauthor={Mallet Quentin},
+    pdfkeywords = {RSSI, Sécurité, Hacking, Informatique, Informaticien,
+        Programmation, Python, Network, Réseau, Unix, C, git, CISO,
+        Latex, Rust, gestin de projet, iptables, administration,
+        docker, cloud, security, developpement}
+}
+
+
+\pagestyle{scrheadings} % Print the headers and footers on all pages
+
+\addtolength{\voffset}{-0.5in} % Adjust the vertical offset - less whitespace at the top of the page
+\addtolength{\textheight}{3cm} % Adjust the text height - less whitespace at the bottom of the page
+
+\newcommand{\gray}{\rowcolor[gray]{.90}} % Custom highlighting for the work experience and education sections
+
+%----------------------------------------------------------------------------------------
+% ÊFOOTER SECTION
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\headfont}{\normalfont\rmfamily\scshape} % Font settings for footer
+
+\cofoot{
+{\Large\Letter} \href{mailto:quentin.mallet@mstratsec.biz}{quentin.mallet@mstratsec.biz} \\
+\vspace{0.2cm}
+\href{https://mstratsec.biz}{mstratsec.biz} \quad
+\href{https://calendar.app.google/DXsoLHjo9oiPqsz1A}{Book an appointment}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center} % Center everything in the document
+
+%----------------------------------------------------------------------------------------
+% ÊHEADER SECTION
+%----------------------------------------------------------------------------------------
+
+{\fontsize{36}{36}\selectfont\scshape Quentin
+Mallet} % Your name at the top
+
+\vspace{1.5cm} % Extra whitespace after the large name at the top
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVE
+%----------------------------------------------------------------------------------------
+-\section*{Diplomas}
+\begin{itemize}
+\item\textit{\textbf{2026-Present}} AFNOR Certification ISO27001 Auditor
+\item\textit{\textbf{2025-Present}} Freelance CyberSecurity Expert
+\item\textit{\textbf{2025}} ISO27001 Auditor
+\item\textit{\textbf{2022-2025}} RSSI, Silae Group
+\item\textit{\textbf{2022}} PMP Certification (Project Management Professional)
+\item\textit{\textbf{2022}} IR(A)
+\item\textit{\textbf{2022}} CISO (Jenji)
+\item\textit{\textbf{2021}} ISO 27001 Lead Implementer
+\item\textit{\textbf{2021}} PPL(A)
+\item \textit{\textbf{2020-2022}} Local Information Security Officer (DRI) Majorel
+\item \textit{\textbf{2018-2020}} Cybersecurity Consultant Alten Group
+\item \textit{\textbf{2016-2018}} Master's degree CRYPTIS (cyber security, Limoges University)
+\item\textit{\textbf{2018}} CLES B2 English (Limoges University)
+\item \textit{\textbf{2013-2016}} BS Computer Science, Poitiers University
+\item \textit{\textbf{2009-2010}} Language proficiency level 2 (Spanish) Poitiers University, Language Proficiency level 4 English
+DCL level 4
+\item \textit{\textbf{2009}} Driver's licence
+\item \textit{\textbf{2008} } High School degree, Economy Major, Minor in Spanish
+\item \textit{\textbf{2007-2008}}  HSK50 Chinese
+\end{itemize}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+\section*{Professional Experience}
+\subsubsection*{\textit{\textbf{2025-Present}} Freelance Cybersecurity Expert }
+\begin{itemize}
+\item Audit missions
+    \begin{itemize}
+        \item DevSecOps Maturity
+        \item ISO27001 Governance
+    \end{itemize}
+\item R\&D
+    \begin{itemize}
+        \item Secure high-availability architectures
+        \item SIEM, Alerting and Monitoring based on Opentelemetry
+        \item Android application development
+    \end{itemize}
+\item Systems and network administration
+\end{itemize}
+
+\subsubsection*{\textit{\textbf{2022-2025}} CISO: Silae Group }
+\begin{itemize}
+    \item Head of CyberSecurity for the number 1 French HR SaaS (1 000 000+ customers, upward of 7 500 000 monthly payslips processed
+    \item Built the security program over three years and obtained the ISO27001 certification
+\end{itemize}
+
+\begin{justify}
+    As part of the Silae Group' C suite I plan and deliver the global cybersecurity, risk and compliance strategy.
+    We handle critical data (accounting related as well as other types through our electronic safes products) and must comply with numerous country-level as well as european-level regulations.
+\end{justify}
+\subsubsection*{ \textit{\textbf{2020-2022}} Local Information Security Officer and DRI at Majorel}
+\begin{itemize}
+\item Multi-source threat hunting
+\item Security incident response (instrusion attempts, data leaks, ...)
+\item Compliance and internal iso27001 audits
+\item SIEM: Rapid7
+\item Software development of security tools (powershell, rust) deployed in production on 4k+ machines
+\item Automating a compliance checks pipeline for client reports
+\item Support and local project management for international, english-speaking clients
+\item Crisis management in English-speaking environment
+\item Collaboration with an international SOC team as part of the security monitoring and incident response protocols.
+\item Contract negociation as security specialist, part of a commercial team.
+\item \textbf{Client relations}: First responder for an international client on technical and security compliance aspects of the contract.
+\item \textbf{Security audits}: internal audits within the company (after third party validation by DataProtect), CTFs (hackthebox)
+\item \textbf{Python} : Sysadmin tasks automations and compliance checks
+\item \textbf{Windows}: Administration and monitoring tools deployment and integration with the overarching security tooling and existing systems.
+\end{itemize}
+
+\subsubsection*{ \textit{\textbf{2019-2020}} Security Analyst for MAIF with Alten Group}
+\begin{itemize}
+\item Network oriented software development for audits and SOC data ingestion
+\item Consulting and advising on the security and compliance aspects of large scale projects.
+\item Deployment and automation of a network probe and monitoring system (ntopng, ELK) for the city of Poitiers.
+\item Internship in the SmartGrids industry with Vientech: securing the infrastructure, development of a local SIEM, GDPR compliance, employee training in secure development
+techniques for embedded systems, firmware development for an electric car charging station, linux server and database hardening.
+\item  \textbf{Perl} : System administration tool development, software development (using the catalyst framework) for the interns at the Poitiers Hospital.
+\end{itemize}
+
+\subsubsection*{\textit{\textbf{2018-2019}} Cybersecurity Expert Intern Vientech (SmartGrids)}
+\begin{itemize}%[leftmargin=*]
+\item \textbf{System administration}: maintenance and exploitation automation using ansible. Compliance and firewall auditing automation.
+\item Databases \textbf{Sqlite}, \textbf{Postgresql} and \textbf{ElasticSearch} :
+\item  \textbf{Linux} : System administration and hardening (application servers, access control, ...)
+\item\textbf{Mongoose OS}: Embedded development on microcontrollers (MQTT using elliptic curves for encryption and authentication on an ATECC508 chipset)
+\item \textbf{C} : Obfuscation and encryption tools development.
+\item \textbf{git, svn, fossil} : versionning for team and personal projects
+\item \textbf{PowerShell}: Security oriented software development for security and compliance in a Windows environment.
+\item Software architecture and deployment for microservice oriented applications using
+    \textbf{docker},
+    \textbf{rancher} and \textbf{kubernetes}.
+\item Deployment and usage of \textbf{ELK} stacks to collect data and create actionable dashboards.
+\end{itemize}
+\subsection*{Languages}
+\begin{itemize}
+    \item French: Fluent
+	\item English: Fluent
+	\item Spanish: Reading.
+\end{itemize}
+\section*{Hobbies}
+\begin{itemize}
+\item Auditing and security tools development
+\item Reading
+\item Trips to english-speaking countries.
+\item Flying
+\item Sailing
+\item Chinese: learning
+\item Martial Arts : Karate (1997-2004), Iaïdo (2004-2013), Krav Maga (2013-2014), Close combat (2014-\the\year)
+\end{itemize}
+\subsection*{Arts}
+\begin{itemize}
+\item Cello: classical, romantic and modern (1997-2013), chamber music and musical analysis.
+\item Cello studies (\textbf{\textit{2008-2013}}) at the école Normale Supérieure de Musique Alfred Cortot, Paris\\
+\end{itemize}
+
+---------------------------------------------------------------------------------------
+
+\end{center}
+
+\end{document}
