@@ -18,13 +18,44 @@
         import nixpkgs {
           inherit system;
         };
+      mkCv =
+        filename: pkgs:
+        pkgs.stdenv.mkDerivation {
+          name = filename;
+          src = ./cv;
+          dontUnpack = true;
+          dontInstall = true;
+          buildInputs = [
+            (pkgs.texlive.withPackages (
+              ps: with ps; [
+                babel-french
+                etoolbox
+                hyperref
+                koma-script
+                marginnote
+                marvosym
+                ragged2e
+                scheme-full
+                tools
+              ]
+            ))
+          ];
+          TEXMFHOME = "$TMPDIR";
+          TEXMFVAR = "$TMPDIR";
+          TEXMFCONFIG = "$TMPDIR";
+          buildPhase = ''
+            lualatex $src/${filename}.tex
+            mkdir -p $out/
+            mv ${filename}.pdf $out/
+          '';
+        };
     in
     flake-utils.lib.eachDefaultSystem (
       system:
 
       let
         pkgs = pkgsForSystem system;
-        lib = pkgs.lib;
+        inherit (pkgs) lib;
       in
       rec {
         packages = rec {
@@ -49,7 +80,15 @@
             '';
             dontInstall = true;
           };
-          default = blog;
+          cv = mkCv "cv" pkgs;
+          cv_en = mkCv "cv_en" pkgs;
+          site = pkgs.runCommand "site" { } ''
+            cp -r ${blog} $out
+            chmod -R u+w $out
+            cp ${cv}/cv.pdf $out/cv.pdf
+            cp ${cv_en}/cv_en.pdf $out/cv_en.pdf
+          '';
+          default = site;
 
         };
         devShells.default = pkgs.mkShell {

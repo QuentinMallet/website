@@ -16,8 +16,9 @@ Professional website for MALLET Strategie & Securite consulting.
 ## Build Commands
 
 ```bash
-nix build            # build the website (default package = blog)
-nix build .#blog     # explicit: build the website
+nix build            # build complete site with PDFs (default package = site)
+nix build .#site     # build complete site (blog + cv.pdf + cv_en.pdf)
+nix build .#blog     # build the website only (no PDFs)
 nix build .#cv       # build CV (French, LaTeX → PDF)
 nix build .#cv_en    # build CV (English, LaTeX → PDF)
 ```
@@ -57,7 +58,7 @@ website/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml           # GitHub Actions CI/CD workflow
-├── flake.nix                    # Nix flake: blog, cv, cv_en packages + devShell
+├── flake.nix                    # Nix flake: blog, cv, cv_en, site packages + devShell
 └── CLAUDE.md                    # This file
 ```
 
@@ -123,9 +124,9 @@ This triggers the GitHub Actions workflow which builds and deploys the site auto
 
 ## Git LFS
 
-`*.png`, `picture.jpg`, and `*.pdf` are tracked via Git LFS (see `.gitattributes`). Files at the repo root (`picture.jpg`, `cv.pdf`, `cv_en.pdf`) are LFS pointer stubs — run `git lfs pull` to fetch the actual content.
+`*.png` and `picture.jpg` are tracked via Git LFS (see `.gitattributes`).
 
-The GitHub Actions workflow uses `lfs: true` in the checkout step to ensure real files (not pointer stubs) are present during the build.
+CV PDFs (`cv.pdf`, `cv_en.pdf`) are built by Nix from LaTeX source in `cv/` — they are not committed to the repo.
 
 ## Beads (task tracking)
 
