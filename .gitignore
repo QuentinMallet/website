@@ -3,3 +3,9 @@ result
 public/
 skills.md
 .direnv/
+.state/
+.beads
+.claude
+.agent-kb
+CLAUDE.md
+AGENTS.md
