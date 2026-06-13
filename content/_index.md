@@ -17,21 +17,6 @@ Conseil en cybersecurite, audit et gestion des risques informatiques pour les en
 
 ---
 
-<!--
-  mind-wallet portfolio demo at https://mind-wallet.mstratsec.biz/ links
-  https://mstratsec.biz/static/tokens.css cross-origin. Soft contract:
-  do not move or rename `static/tokens.css` without updating the
-  mind-wallet demo (and its incident-response runbook in
-  ../mind-wallet/web/README.md#supply-chain-takedown).
--->
-### Outils
-
-Démonstrations et outils open source.
-
-- [mind-wallet](https://mind-wallet.mstratsec.biz/) — démonstration WebAssembly de la dérivation déterministe d'un portefeuille Monero à partir d'une passphrase mémorisée. Le code de référence reste la CLI Rust ([dépôt](https://github.com/QuentinMallet/mind-wallet)).
-
----
-
 ### Contact
 
 **Quentin Mallet**
