@@ -1,0 +1,20 @@
+## Ralph Session — CV PDF Link
+
+### Completed
+- US-001: cv/cv.tex + cv/cv_en.tex copied from /home/urist/Documents/boulot/blog/cv/
+- US-002: flake.nix updated — mkCv helper, cv, cv_en, site packages; default = site
+- US-003: templates/cv.html — PDF download button added (data-fr → /cv.pdf, data-en → /cv_en.pdf, btn--primary)
+- US-004: .github/workflows/deploy.yml — nix build .#site, lfs: true removed
+- US-005: .gitattributes — *.pdf LFS rule removed
+- US-006: CLAUDE.md — build commands updated (site added), flake.nix comment updated, LFS section updated
+
+### Key decisions
+- mkCv uses lualatex (not pdflatex/xelatex), ported from blog repo flake verbatim
+- site = pkgs.runCommand that copies blog output + both PDFs
+- blog derivation unchanged — still works independently
+- cv/ must be git-staged for Nix flake to see it (done: git add cv/)
+- statix warning fixed: lib = pkgs.lib → inherit (pkgs) lib
+
+### Pending verification
+- nix build .#cv (running in background)
+- nix build .#site (pending cv completion)

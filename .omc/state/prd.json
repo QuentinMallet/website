@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "task": "Add CV PDF build outputs and download link to website",
+  "rescan_done": true,
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Copy LaTeX CV source into website repo",
+      "passes": true,
+      "acceptanceCriteria": [
+        "website/cv/cv.tex exists and matches source from /home/urist/Documents/boulot/blog/cv/cv.tex",
+        "website/cv/cv_en.tex exists and matches source from /home/urist/Documents/boulot/blog/cv/cv_en.tex",
+        "No other files from blog cv/ are copied (new_cv.tex stays in blog repo)"
+      ]
+    },
+    {
+      "id": "US-002",
+      "title": "Add cv, cv_en, site flake packages",
+      "passes": true,
+      "acceptanceCriteria": [
+        "flake.nix defines mkCv helper function using lualatex",
+        "flake.nix defines cv = mkCv \"cv\" pkgs package",
+        "flake.nix defines cv_en = mkCv \"cv_en\" pkgs package",
+        "flake.nix defines site package via pkgs.runCommand that copies blog output then adds cv.pdf and cv_en.pdf",
+        "flake.nix default package is site (not blog)",
+        "nix build .#cv succeeds and result/cv.pdf exists — VERIFIED: 161K",
+        "nix build .#cv_en succeeds and result/cv_en.pdf exists — VERIFIED: 162K",
+        "nix build .#site succeeds and result/ contains site + cv.pdf + cv_en.pdf — VERIFIED"
+      ]
+    },
+    {
+      "id": "US-003",
+      "title": "Add language-aware PDF download button to cv.html",
+      "passes": true,
+      "acceptanceCriteria": [
+        "templates/cv.html contains download button using btn btn--primary CSS class",
+        "FR version links to /cv.pdf with data-fr attribute",
+        "EN version links to /cv_en.pdf with data-en attribute and style='display:none'",
+        "Button label is 'Télécharger en PDF' for FR and 'Download PDF' for EN",
+        "nix build .#blog still succeeds — VERIFIED"
+      ]
+    },
+    {
+      "id": "US-004",
+      "title": "Update GitHub Actions deploy workflow",
+      "passes": true,
+      "acceptanceCriteria": [
+        ".github/workflows/deploy.yml uses 'nix build .#site' — VERIFIED",
+        "checkout step no longer has 'lfs: true' — VERIFIED"
+      ]
+    },
+    {
+      "id": "US-005",
+      "title": "Remove *.pdf LFS tracking",
+      "passes": true,
+      "acceptanceCriteria": [
+        ".gitattributes no longer contains '*.pdf filter=lfs diff=lfs merge=lfs -text' — VERIFIED",
+        "Other LFS rules (*.png, picture.jpg) remain untouched — VERIFIED"
+      ]
+    },
+    {
+      "id": "US-006",
+      "title": "Update CLAUDE.md to reflect new structure",
+      "passes": true,
+      "acceptanceCriteria": [
+        "CLAUDE.md Build Commands table includes nix build .#site — VERIFIED",
+        "CLAUDE.md directory structure includes cv/ entry — VERIFIED (was already present)",
+        "CLAUDE.md Git LFS section updated to remove *.pdf reference — VERIFIED"
+      ]
+    }
+  ]
+}

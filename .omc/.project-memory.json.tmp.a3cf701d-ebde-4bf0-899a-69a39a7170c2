@@ -1,0 +1,110 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776495228332,
+  "projectRoot": "/home/urist/website",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "static"
+    ],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "content": {
+      "path": "content",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1776495228282,
+      "keyFiles": [
+        "_index.md",
+        "cv.md"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 8,
+      "lastAccessed": 1776495228293,
+      "keyFiles": [
+        "404.html",
+        "CNAME",
+        "index.html",
+        "logo.png",
+        "pubkey.asc"
+      ]
+    },
+    "sass": {
+      "path": "sass",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776495228298,
+      "keyFiles": [
+        "style.scss"
+      ]
+    },
+    "static": {
+      "path": "static",
+      "purpose": "Static files",
+      "fileCount": 3,
+      "lastAccessed": 1776495228316,
+      "keyFiles": [
+        "CNAME",
+        "logo.png",
+        "pubkey.asc"
+      ]
+    },
+    "templates": {
+      "path": "templates",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1776495228319,
+      "keyFiles": [
+        "base.html",
+        "cv.html",
+        "index.html",
+        "page.html",
+        "section.html"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "templates/base.html",
+      "accessCount": 2,
+      "lastAccessed": 1775643464184,
+      "type": "file"
+    },
+    {
+      "path": "templates/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1776495363824,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

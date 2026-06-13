@@ -1,0 +1,154 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1780048577529,
+  "projectRoot": "/home/urist/Documents/boulot/website",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "static"
+    ],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "content": {
+      "path": "content",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1780048577513,
+      "keyFiles": [
+        "_index.md",
+        "cv.md"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 12,
+      "lastAccessed": 1780048577516,
+      "keyFiles": [
+        "404.html",
+        "CNAME",
+        "index.html",
+        "logo.png",
+        "portrait.jpg"
+      ]
+    },
+    "sass": {
+      "path": "sass",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1780048577516,
+      "keyFiles": [
+        "style.scss"
+      ]
+    },
+    "static": {
+      "path": "static",
+      "purpose": "Static files",
+      "fileCount": 7,
+      "lastAccessed": 1780048577516,
+      "keyFiles": [
+        "CNAME",
+        "logo.png",
+        "portrait.jpg",
+        "pubkey.asc",
+        "site.css"
+      ]
+    },
+    "templates": {
+      "path": "templates",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1780048577517,
+      "keyFiles": [
+        "base.html",
+        "cv.html",
+        "index.html",
+        "page.html",
+        "section.html"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "flake.nix",
+      "accessCount": 5,
+      "lastAccessed": 1780052352451,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 5,
+      "lastAccessed": 1780052357343,
+      "type": "file"
+    },
+    {
+      "path": "templates/cv.html",
+      "accessCount": 3,
+      "lastAccessed": 1780052356366,
+      "type": "file"
+    },
+    {
+      "path": "templates/index.html",
+      "accessCount": 2,
+      "lastAccessed": 1780062612311,
+      "type": "file"
+    },
+    {
+      "path": "static/site.css",
+      "accessCount": 2,
+      "lastAccessed": 1780062640567,
+      "type": "file"
+    },
+    {
+      "path": "content/_index.md",
+      "accessCount": 1,
+      "lastAccessed": 1780048621011,
+      "type": "file"
+    },
+    {
+      "path": "content/cv.md",
+      "accessCount": 1,
+      "lastAccessed": 1780050890672,
+      "type": "file"
+    },
+    {
+      "path": "templates/base.html",
+      "accessCount": 1,
+      "lastAccessed": 1780062607490,
+      "type": "file"
+    },
+    {
+      "path": "static/logo.png",
+      "accessCount": 1,
+      "lastAccessed": 1780062635345,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
