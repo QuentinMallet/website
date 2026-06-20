@@ -29,10 +29,13 @@
             (pkgs.texlive.withPackages (
               ps: with ps; [
                 babel-french
+                carlisle
                 etoolbox
                 hyperref
                 koma-script
+                latex-bin
                 luahbtex
+                luaotfload
                 marginnote
                 marvosym
                 ragged2e
