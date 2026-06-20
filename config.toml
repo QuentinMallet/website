@@ -8,6 +8,3 @@ default_language = "fr"
 compile_sass = true
 build_search_index = false
 generate_feeds = false
-
-[markdown]
-highlighting = false
