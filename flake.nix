@@ -32,10 +32,10 @@
                 etoolbox
                 hyperref
                 koma-script
+                luatex
                 marginnote
                 marvosym
                 ragged2e
-                scheme-full
                 tools
               ]
             ))
