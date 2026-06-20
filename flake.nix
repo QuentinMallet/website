@@ -32,7 +32,7 @@
                 etoolbox
                 hyperref
                 koma-script
-                luatex
+                luahbtex
                 marginnote
                 marvosym
                 ragged2e
