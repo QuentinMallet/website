@@ -7,7 +7,7 @@ description = "Expert Cybersecurite - Consultant Informatique"
 
 ## Strategie & Securite
 
-Expert Cybersecurite — Consultant Informatique
+Expert Cybersecurite · Consultant Informatique
 
 ---
 

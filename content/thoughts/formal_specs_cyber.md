@@ -4,7 +4,7 @@ date = 2026-05-26
 description = "Formal specs are already accepted in the SE industry, here's why they are useful in cyber, both technical and GRC"
 +++
 
-> “When I use a temporal property,” Humpty Dumpty said in rather a scornful tone, “it means just what I choose it to mean—neither more nor less.”
+> “When I use a temporal property,” Humpty Dumpty said in rather a scornful tone, “it means just what I choose it to mean, neither more nor less.”
 (Lewis Carroll, 25% confidence)
 
 What does an ISO27001 compliant clearance management process, an autopilot to avionics link and a dynamic VPN credential manager have in common?
