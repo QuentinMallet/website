@@ -10,4 +10,4 @@ build_search_index = false
 generate_feeds = false
 
 [markdown]
-highlight_code = false
+highlighting = false
