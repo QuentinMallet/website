@@ -18,6 +18,3 @@ Je considère que le cout de construction d'un mensonge croit de manière superl
 - analyse des effets de bord sur l'infrastructure en live => votre rapport montre l'execution d'un test de PRA daté du XX, vous m'avez détaillé votre pipeline de centralisation des logs, maintenant montrez moi les logs afférents à votre test de PRA. Montrez moi sur le serveur concerné le fichier de définition du service Y impacté par le test de PRA et ses informations de dernière execution
 
 La semaine prochaine: division du travail et effets de levier.
-
-
-#ISO27001 #audit #cybersécurité #conformité #PRA
